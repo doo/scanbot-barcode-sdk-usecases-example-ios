@@ -1,0 +1,488 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F18AE9452A5EC2AD006E7DE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18AE9442A5EC2AD006E7DE5 /* AppDelegate.swift */; };
+		F18AE9472A5EC2AD006E7DE5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18AE9462A5EC2AD006E7DE5 /* SceneDelegate.swift */; };
+		F18AE9492A5EC2AD006E7DE5 /* BarcodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18AE9482A5EC2AD006E7DE5 /* BarcodeScannerViewController.swift */; };
+		F18AE94C2A5EC2AD006E7DE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F18AE94A2A5EC2AD006E7DE5 /* Main.storyboard */; };
+		F18AE94E2A5EC2AE006E7DE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F18AE94D2A5EC2AE006E7DE5 /* Assets.xcassets */; };
+		F18AE9512A5EC2AE006E7DE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F18AE94F2A5EC2AE006E7DE5 /* LaunchScreen.storyboard */; };
+		F18AE95A2A5ED8C5006E7DE5 /* ScanbotBarcodeScannerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = F18AE9592A5ED8C5006E7DE5 /* ScanbotBarcodeScannerSDK */; };
+		F1ECF50C2A5F199400285A5F /* UseCasesListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECF50B2A5F199400285A5F /* UseCasesListTableViewController.swift */; };
+		F1ECF50E2A5FF89800285A5F /* MultipleBarcodesScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECF50D2A5FF89800285A5F /* MultipleBarcodesScannerViewController.swift */; };
+		F1ECF5102A5FF95D00285A5F /* BatchBarcodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECF50F2A5FF95D00285A5F /* BatchBarcodeScannerViewController.swift */; };
+		F1ECF5122A5FFA1400285A5F /* TinyBarcodesScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECF5112A5FFA1400285A5F /* TinyBarcodesScannerViewController.swift */; };
+		F1ECF5142A5FFA7400285A5F /* DistantBarcodesScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECF5132A5FFA7400285A5F /* DistantBarcodesScannerViewController.swift */; };
+		F1ECF5162A5FFD4F00285A5F /* DetectBarcodesOnStillImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECF5152A5FFD4F00285A5F /* DetectBarcodesOnStillImagesViewController.swift */; };
+		F1ECF5192A5FFFFA00285A5F /* ARMultiScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECF5182A5FFFFA00285A5F /* ARMultiScanViewController.swift */; };
+		F1ECF51B2A60007500285A5F /* ARSelectScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECF51A2A60007500285A5F /* ARSelectScanViewController.swift */; };
+		F1ECF51D2A60028000285A5F /* ARFindAndPickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECF51C2A60028000285A5F /* ARFindAndPickViewController.swift */; };
+		F1ECF51F2A60032F00285A5F /* ARScanAndCountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECF51E2A60032F00285A5F /* ARScanAndCountViewController.swift */; };
+		F1ECF5212A60056500285A5F /* ARBarcodeVisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECF5202A60056500285A5F /* ARBarcodeVisionViewController.swift */; };
+		F1ECF5252A60219700285A5F /* BarcodeResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECF5242A60219700285A5F /* BarcodeResultViewController.swift */; };
+		F1ECF5282A60229800285A5F /* BarcodeResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECF5272A60229800285A5F /* BarcodeResultTableViewCell.swift */; };
+		F1ECF52A2A6023B300285A5F /* BarcodeResultDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECF5292A6023B300285A5F /* BarcodeResultDetailsViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F18AE9412A5EC2AD006E7DE5 /* Scanbot Barcode SDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scanbot Barcode SDK.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F18AE9442A5EC2AD006E7DE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F18AE9462A5EC2AD006E7DE5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F18AE9482A5EC2AD006E7DE5 /* BarcodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerViewController.swift; sourceTree = "<group>"; };
+		F18AE94B2A5EC2AD006E7DE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F18AE94D2A5EC2AE006E7DE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F18AE9502A5EC2AE006E7DE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F18AE9522A5EC2AE006E7DE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1ECF50B2A5F199400285A5F /* UseCasesListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCasesListTableViewController.swift; sourceTree = "<group>"; };
+		F1ECF50D2A5FF89800285A5F /* MultipleBarcodesScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleBarcodesScannerViewController.swift; sourceTree = "<group>"; };
+		F1ECF50F2A5FF95D00285A5F /* BatchBarcodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchBarcodeScannerViewController.swift; sourceTree = "<group>"; };
+		F1ECF5112A5FFA1400285A5F /* TinyBarcodesScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinyBarcodesScannerViewController.swift; sourceTree = "<group>"; };
+		F1ECF5132A5FFA7400285A5F /* DistantBarcodesScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistantBarcodesScannerViewController.swift; sourceTree = "<group>"; };
+		F1ECF5152A5FFD4F00285A5F /* DetectBarcodesOnStillImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectBarcodesOnStillImagesViewController.swift; sourceTree = "<group>"; };
+		F1ECF5182A5FFFFA00285A5F /* ARMultiScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARMultiScanViewController.swift; sourceTree = "<group>"; };
+		F1ECF51A2A60007500285A5F /* ARSelectScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSelectScanViewController.swift; sourceTree = "<group>"; };
+		F1ECF51C2A60028000285A5F /* ARFindAndPickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARFindAndPickViewController.swift; sourceTree = "<group>"; };
+		F1ECF51E2A60032F00285A5F /* ARScanAndCountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARScanAndCountViewController.swift; sourceTree = "<group>"; };
+		F1ECF5202A60056500285A5F /* ARBarcodeVisionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARBarcodeVisionViewController.swift; sourceTree = "<group>"; };
+		F1ECF5242A60219700285A5F /* BarcodeResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeResultViewController.swift; sourceTree = "<group>"; };
+		F1ECF5272A60229800285A5F /* BarcodeResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeResultTableViewCell.swift; sourceTree = "<group>"; };
+		F1ECF5292A6023B300285A5F /* BarcodeResultDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeResultDetailsViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F18AE93E2A5EC2AD006E7DE5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F18AE95A2A5ED8C5006E7DE5 /* ScanbotBarcodeScannerSDK in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F18AE9382A5EC2AD006E7DE5 = {
+			isa = PBXGroup;
+			children = (
+				F18AE9432A5EC2AD006E7DE5 /* Scanbot Barcode SDK */,
+				F18AE9422A5EC2AD006E7DE5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F18AE9422A5EC2AD006E7DE5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F18AE9412A5EC2AD006E7DE5 /* Scanbot Barcode SDK.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F18AE9432A5EC2AD006E7DE5 /* Scanbot Barcode SDK */ = {
+			isa = PBXGroup;
+			children = (
+				F1ECF5082A5F0F0600285A5F /* Use Cases */,
+				F1ECF5172A5FFF7200285A5F /* AR Use Cases */,
+				F1ECF50B2A5F199400285A5F /* UseCasesListTableViewController.swift */,
+				F1ECF5232A60217800285A5F /* Results */,
+				F18AE9442A5EC2AD006E7DE5 /* AppDelegate.swift */,
+				F18AE9462A5EC2AD006E7DE5 /* SceneDelegate.swift */,
+				F18AE94A2A5EC2AD006E7DE5 /* Main.storyboard */,
+				F1ECF5222A6011D900285A5F /* Supporting Files */,
+			);
+			path = "Scanbot Barcode SDK";
+			sourceTree = "<group>";
+		};
+		F1ECF5082A5F0F0600285A5F /* Use Cases */ = {
+			isa = PBXGroup;
+			children = (
+				F18AE9482A5EC2AD006E7DE5 /* BarcodeScannerViewController.swift */,
+				F1ECF50D2A5FF89800285A5F /* MultipleBarcodesScannerViewController.swift */,
+				F1ECF50F2A5FF95D00285A5F /* BatchBarcodeScannerViewController.swift */,
+				F1ECF5112A5FFA1400285A5F /* TinyBarcodesScannerViewController.swift */,
+				F1ECF5132A5FFA7400285A5F /* DistantBarcodesScannerViewController.swift */,
+				F1ECF5152A5FFD4F00285A5F /* DetectBarcodesOnStillImagesViewController.swift */,
+			);
+			path = "Use Cases";
+			sourceTree = "<group>";
+		};
+		F1ECF5172A5FFF7200285A5F /* AR Use Cases */ = {
+			isa = PBXGroup;
+			children = (
+				F1ECF5182A5FFFFA00285A5F /* ARMultiScanViewController.swift */,
+				F1ECF51A2A60007500285A5F /* ARSelectScanViewController.swift */,
+				F1ECF51C2A60028000285A5F /* ARFindAndPickViewController.swift */,
+				F1ECF51E2A60032F00285A5F /* ARScanAndCountViewController.swift */,
+				F1ECF5202A60056500285A5F /* ARBarcodeVisionViewController.swift */,
+			);
+			path = "AR Use Cases";
+			sourceTree = "<group>";
+		};
+		F1ECF5222A6011D900285A5F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F18AE94D2A5EC2AE006E7DE5 /* Assets.xcassets */,
+				F18AE94F2A5EC2AE006E7DE5 /* LaunchScreen.storyboard */,
+				F18AE9522A5EC2AE006E7DE5 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F1ECF5232A60217800285A5F /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				F1ECF5242A60219700285A5F /* BarcodeResultViewController.swift */,
+				F1ECF5292A6023B300285A5F /* BarcodeResultDetailsViewController.swift */,
+				F1ECF5262A60227B00285A5F /* Barcode Table Cell */,
+			);
+			path = Results;
+			sourceTree = "<group>";
+		};
+		F1ECF5262A60227B00285A5F /* Barcode Table Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F1ECF5272A60229800285A5F /* BarcodeResultTableViewCell.swift */,
+			);
+			path = "Barcode Table Cell";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F18AE9402A5EC2AD006E7DE5 /* Scanbot Barcode SDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F18AE9552A5EC2AE006E7DE5 /* Build configuration list for PBXNativeTarget "Scanbot Barcode SDK" */;
+			buildPhases = (
+				F18AE93D2A5EC2AD006E7DE5 /* Sources */,
+				F18AE93E2A5EC2AD006E7DE5 /* Frameworks */,
+				F18AE93F2A5EC2AD006E7DE5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Scanbot Barcode SDK";
+			packageProductDependencies = (
+				F18AE9592A5ED8C5006E7DE5 /* ScanbotBarcodeScannerSDK */,
+			);
+			productName = "Scanbot Barcode SDK";
+			productReference = F18AE9412A5EC2AD006E7DE5 /* Scanbot Barcode SDK.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F18AE9392A5EC2AD006E7DE5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					F18AE9402A5EC2AD006E7DE5 = {
+						CreatedOnToolsVersion = 14.3;
+					};
+				};
+			};
+			buildConfigurationList = F18AE93C2A5EC2AD006E7DE5 /* Build configuration list for PBXProject "Scanbot Barcode SDK" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F18AE9382A5EC2AD006E7DE5;
+			packageReferences = (
+				F18AE9582A5ED8C5006E7DE5 /* XCRemoteSwiftPackageReference "scanbot-barcode-scanner-sdk-ios-spm" */,
+			);
+			productRefGroup = F18AE9422A5EC2AD006E7DE5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F18AE9402A5EC2AD006E7DE5 /* Scanbot Barcode SDK */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F18AE93F2A5EC2AD006E7DE5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F18AE9512A5EC2AE006E7DE5 /* LaunchScreen.storyboard in Resources */,
+				F18AE94E2A5EC2AE006E7DE5 /* Assets.xcassets in Resources */,
+				F18AE94C2A5EC2AD006E7DE5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F18AE93D2A5EC2AD006E7DE5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1ECF5192A5FFFFA00285A5F /* ARMultiScanViewController.swift in Sources */,
+				F1ECF5142A5FFA7400285A5F /* DistantBarcodesScannerViewController.swift in Sources */,
+				F1ECF5162A5FFD4F00285A5F /* DetectBarcodesOnStillImagesViewController.swift in Sources */,
+				F18AE9492A5EC2AD006E7DE5 /* BarcodeScannerViewController.swift in Sources */,
+				F1ECF51B2A60007500285A5F /* ARSelectScanViewController.swift in Sources */,
+				F1ECF50C2A5F199400285A5F /* UseCasesListTableViewController.swift in Sources */,
+				F1ECF50E2A5FF89800285A5F /* MultipleBarcodesScannerViewController.swift in Sources */,
+				F1ECF5102A5FF95D00285A5F /* BatchBarcodeScannerViewController.swift in Sources */,
+				F1ECF5122A5FFA1400285A5F /* TinyBarcodesScannerViewController.swift in Sources */,
+				F1ECF5212A60056500285A5F /* ARBarcodeVisionViewController.swift in Sources */,
+				F1ECF5282A60229800285A5F /* BarcodeResultTableViewCell.swift in Sources */,
+				F1ECF52A2A6023B300285A5F /* BarcodeResultDetailsViewController.swift in Sources */,
+				F1ECF51F2A60032F00285A5F /* ARScanAndCountViewController.swift in Sources */,
+				F18AE9452A5EC2AD006E7DE5 /* AppDelegate.swift in Sources */,
+				F18AE9472A5EC2AD006E7DE5 /* SceneDelegate.swift in Sources */,
+				F1ECF51D2A60028000285A5F /* ARFindAndPickViewController.swift in Sources */,
+				F1ECF5252A60219700285A5F /* BarcodeResultViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F18AE94A2A5EC2AD006E7DE5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F18AE94B2A5EC2AD006E7DE5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F18AE94F2A5EC2AE006E7DE5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F18AE9502A5EC2AE006E7DE5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F18AE9532A5EC2AE006E7DE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F18AE9542A5EC2AE006E7DE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F18AE9562A5EC2AE006E7DE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FRUPYT6KB3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Scanbot Barcode SDK/Supporting Files/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.scanbot.example.barcodesdk.usecases.ios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F18AE9572A5EC2AE006E7DE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FRUPYT6KB3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Scanbot Barcode SDK/Supporting Files/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.scanbot.example.barcodesdk.usecases.ios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F18AE93C2A5EC2AD006E7DE5 /* Build configuration list for PBXProject "Scanbot Barcode SDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F18AE9532A5EC2AE006E7DE5 /* Debug */,
+				F18AE9542A5EC2AE006E7DE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F18AE9552A5EC2AE006E7DE5 /* Build configuration list for PBXNativeTarget "Scanbot Barcode SDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F18AE9562A5EC2AE006E7DE5 /* Debug */,
+				F18AE9572A5EC2AE006E7DE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F18AE9582A5ED8C5006E7DE5 /* XCRemoteSwiftPackageReference "scanbot-barcode-scanner-sdk-ios-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:doo/scanbot-barcode-scanner-sdk-ios-spm.git";
+			requirement = {
+				kind = exactVersion;
+				version = 3.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F18AE9592A5ED8C5006E7DE5 /* ScanbotBarcodeScannerSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F18AE9582A5ED8C5006E7DE5 /* XCRemoteSwiftPackageReference "scanbot-barcode-scanner-sdk-ios-spm" */;
+			productName = ScanbotBarcodeScannerSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = F18AE9392A5EC2AD006E7DE5 /* Project object */;
+}
