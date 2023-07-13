@@ -14,6 +14,7 @@
 		F18AE94E2A5EC2AE006E7DE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F18AE94D2A5EC2AE006E7DE5 /* Assets.xcassets */; };
 		F18AE9512A5EC2AE006E7DE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F18AE94F2A5EC2AE006E7DE5 /* LaunchScreen.storyboard */; };
 		F18AE95A2A5ED8C5006E7DE5 /* ScanbotBarcodeScannerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = F18AE9592A5ED8C5006E7DE5 /* ScanbotBarcodeScannerSDK */; };
+		F1A83A482A605A8A00CDE7C8 /* QR_Code.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F1A83A472A605A8A00CDE7C8 /* QR_Code.jpg */; };
 		F1ECF50C2A5F199400285A5F /* UseCasesListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECF50B2A5F199400285A5F /* UseCasesListTableViewController.swift */; };
 		F1ECF50E2A5FF89800285A5F /* MultipleBarcodesScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECF50D2A5FF89800285A5F /* MultipleBarcodesScannerViewController.swift */; };
 		F1ECF5102A5FF95D00285A5F /* BatchBarcodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECF50F2A5FF95D00285A5F /* BatchBarcodeScannerViewController.swift */; };
@@ -39,6 +40,7 @@
 		F18AE94D2A5EC2AE006E7DE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F18AE9502A5EC2AE006E7DE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F18AE9522A5EC2AE006E7DE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1A83A472A605A8A00CDE7C8 /* QR_Code.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = QR_Code.jpg; sourceTree = "<group>"; };
 		F1ECF50B2A5F199400285A5F /* UseCasesListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCasesListTableViewController.swift; sourceTree = "<group>"; };
 		F1ECF50D2A5FF89800285A5F /* MultipleBarcodesScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleBarcodesScannerViewController.swift; sourceTree = "<group>"; };
 		F1ECF50F2A5FF95D00285A5F /* BatchBarcodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchBarcodeScannerViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +100,14 @@
 			path = "Scanbot Barcode SDK";
 			sourceTree = "<group>";
 		};
+		F1A83A462A605A7B00CDE7C8 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				F1A83A472A605A8A00CDE7C8 /* QR_Code.jpg */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		F1ECF5082A5F0F0600285A5F /* Use Cases */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +136,7 @@
 		F1ECF5222A6011D900285A5F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F1A83A462A605A7B00CDE7C8 /* Images */,
 				F18AE94D2A5EC2AE006E7DE5 /* Assets.xcassets */,
 				F18AE94F2A5EC2AE006E7DE5 /* LaunchScreen.storyboard */,
 				F18AE9522A5EC2AE006E7DE5 /* Info.plist */,
@@ -218,6 +229,7 @@
 				F18AE9512A5EC2AE006E7DE5 /* LaunchScreen.storyboard in Resources */,
 				F18AE94E2A5EC2AE006E7DE5 /* Assets.xcassets in Resources */,
 				F18AE94C2A5EC2AD006E7DE5 /* Main.storyboard in Resources */,
+				F1A83A482A605A8A00CDE7C8 /* QR_Code.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,9 +8,9 @@
 import UIKit
 import ScanbotBarcodeScannerSDK
 
-class ARFindAndPickViewController: UIViewController {
+final class ARFindAndPickViewController: UIViewController {
     
-    @IBOutlet private var cameraView: UIView!
+    @IBOutlet private var scannerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

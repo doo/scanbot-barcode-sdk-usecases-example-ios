@@ -23,3 +23,17 @@ class BarcodeResultDetailsViewController: UIViewController {
         barcodeTextLabel?.text = barcodeText
     }
 }
+
+extension BarcodeResultDetailsViewController {
+    static func make(code: SBSDKBarcodeScannerResult) -> BarcodeResultDetailsViewController {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "barcodeResultDetailViewController")
+        as! BarcodeResultDetailsViewController
+        
+        viewController.barcodeImage = code.barcodeImage
+        viewController.barcodeText = code.rawTextStringWithExtension
+        
+        return viewController
+    }
+}
