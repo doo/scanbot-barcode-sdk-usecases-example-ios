@@ -14,7 +14,7 @@ final class DistantBarcodesScannerViewController: UIViewController {
     @IBOutlet private var barcodeImageView: UIImageView!
     @IBOutlet private var barcodeTextLabel: UILabel!
     
-    private var scannerViewController: SBSDKBarcodeScannerViewController!
+    private var scannerViewController: SBSDKBarcodeScannerViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +22,8 @@ final class DistantBarcodesScannerViewController: UIViewController {
         scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
                                                                   parentView: self.scannerView,
                                                                   delegate: self)
+        
+        guard let scannerViewController else { return }
         
         let zoomConfiguration = scannerViewController.zoomConfiguration
         zoomConfiguration.initialZoomFactor = 1.0

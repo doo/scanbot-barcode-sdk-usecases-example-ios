@@ -13,9 +13,8 @@ final class BatchBarcodeScannerViewController: UIViewController {
     @IBOutlet private var scannerView: UIView!
     @IBOutlet private var resultListTableView: UITableView!
     
-    private var scannerViewController: SBSDKBarcodeScannerViewController!
+    private var scannerViewController: SBSDKBarcodeScannerViewController?
     
-    private var shouldDetect: Bool = false
     private var barcodeResults = [SBSDKBarcodeScannerResult]()
 
     override func viewDidLoad() {
@@ -25,29 +24,17 @@ final class BatchBarcodeScannerViewController: UIViewController {
                                                                   parentView: self.scannerView,
                                                                   delegate: self)
         
+        guard let scannerViewController else { return }
+        
         let viewFinderConfiguration = scannerViewController.viewFinderConfiguration
         viewFinderConfiguration.isViewFinderEnabled = true
         viewFinderConfiguration.aspectRatio = SBSDKAspectRatio(width: 1, andHeight: 1)
         
         scannerViewController.viewFinderConfiguration = viewFinderConfiguration
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        shouldDetect = true
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        shouldDetect = false
-    }
 }
 
 extension BatchBarcodeScannerViewController: SBSDKBarcodeScannerViewControllerDelegate {
-    
-    func barcodeScannerControllerShouldDetectBarcodes(_ controller: SBSDKBarcodeScannerViewController) -> Bool {
-        return shouldDetect
-    }
     
     func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
                                   didDetectBarcodes codes: [SBSDKBarcodeScannerResult]) {
@@ -66,6 +53,10 @@ extension BatchBarcodeScannerViewController: SBSDKBarcodeScannerViewControllerDe
 }
 
 extension BatchBarcodeScannerViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80.0
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.barcodeResults.count

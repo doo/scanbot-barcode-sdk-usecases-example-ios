@@ -13,9 +13,8 @@ final class MultipleBarcodesScannerViewController: UIViewController {
     @IBOutlet private var scannerView: UIView!
     @IBOutlet private var resultListTableView: UITableView!
     
-    private var scannerViewController: SBSDKBarcodeScannerViewController!
+    private var scannerViewController: SBSDKBarcodeScannerViewController?
     
-    private var shouldDetect: Bool = false
     private var barcodeResults = [SBSDKBarcodeScannerResult]()
 
     override func viewDidLoad() {
@@ -25,23 +24,9 @@ final class MultipleBarcodesScannerViewController: UIViewController {
                                                                   parentView: self.scannerView,
                                                                   delegate: self)
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        shouldDetect = true
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        shouldDetect = false
-    }
 }
 
 extension MultipleBarcodesScannerViewController: SBSDKBarcodeScannerViewControllerDelegate {
-    
-    func barcodeScannerControllerShouldDetectBarcodes(_ controller: SBSDKBarcodeScannerViewController) -> Bool {
-        return shouldDetect
-    }
     
     func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
                                   didDetectBarcodes codes: [SBSDKBarcodeScannerResult]) {
@@ -60,6 +45,10 @@ extension MultipleBarcodesScannerViewController: SBSDKBarcodeScannerViewControll
 }
 
 extension MultipleBarcodesScannerViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80.0
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.barcodeResults.count
