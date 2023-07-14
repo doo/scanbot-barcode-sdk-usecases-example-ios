@@ -21,6 +21,7 @@ final class ARScanAndCountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Initialize the barcode scanner
         scannerViewController = SBSDKBarcodeScanAndCountViewController(parentViewController: self,
                                                                        parentView: self.scannerView,
                                                                        delegate: self)
@@ -31,23 +32,29 @@ extension ARScanAndCountViewController: SBSDKBarcodeScanAndCountViewControllerDe
     
     func barcodeScanAndCount(_ controller: SBSDKBarcodeScanAndCountViewController,
                              overlayForBarcode code: SBSDKBarcodeScannerResult) -> UIView? {
+        
+        // Provide overlay view for the the AR overlay
         return UIImageView(image: UIImage(imageLiteralResourceName: "barcode_checkmark"))
     }
     
     func barcodeScanAndCount(_ controller: SBSDKBarcodeScanAndCountViewController,
                              didDetectBarcodes codes: [SBSDKBarcodeScannerResult]) {
         
+        // Check if the code is new or has been detected before
         codes.forEach { code in
             
             guard let existingCode = self.countedBarcodes.first(where: {
                 $0.code.type == code.type && $0.code.rawTextString == code.rawTextString
+                
             }) else {
+                
+                // If the code is new
                 self.countedBarcodes.append(SBSDKBarcodeScannerAccumulatingResult(barcodeResult: code))
                 return
             }
             
+            // If the code is not new, update it's `scanCount`
             existingCode.scanCount += 1
-            existingCode.code.dateOfDetection = code.dateOfDetection
         }
         
         let currentBarcodesFound = codes.count

@@ -13,8 +13,8 @@
 		F18AE94C2A5EC2AD006E7DE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F18AE94A2A5EC2AD006E7DE5 /* Main.storyboard */; };
 		F18AE94E2A5EC2AE006E7DE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F18AE94D2A5EC2AE006E7DE5 /* Assets.xcassets */; };
 		F18AE9512A5EC2AE006E7DE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F18AE94F2A5EC2AE006E7DE5 /* LaunchScreen.storyboard */; };
-		F18AE95A2A5ED8C5006E7DE5 /* ScanbotBarcodeScannerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = F18AE9592A5ED8C5006E7DE5 /* ScanbotBarcodeScannerSDK */; };
-		F1A83A482A605A8A00CDE7C8 /* QR_Code.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F1A83A472A605A8A00CDE7C8 /* QR_Code.jpg */; };
+		F1A83C542A6187FF00CDE7C8 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A83C532A6187FF00CDE7C8 /* Array+Extension.swift */; };
+		F1D4C0502A61A9E900BC3665 /* ScanbotBarcodeScannerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = F1D4C04F2A61A9E900BC3665 /* ScanbotBarcodeScannerSDK */; };
 		F1ECF50C2A5F199400285A5F /* UseCasesListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECF50B2A5F199400285A5F /* UseCasesListTableViewController.swift */; };
 		F1ECF50E2A5FF89800285A5F /* MultipleBarcodesScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECF50D2A5FF89800285A5F /* MultipleBarcodesScannerViewController.swift */; };
 		F1ECF5102A5FF95D00285A5F /* BatchBarcodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECF50F2A5FF95D00285A5F /* BatchBarcodeScannerViewController.swift */; };
@@ -26,13 +26,11 @@
 		F1ECF51D2A60028000285A5F /* ARFindAndPickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECF51C2A60028000285A5F /* ARFindAndPickViewController.swift */; };
 		F1ECF51F2A60032F00285A5F /* ARScanAndCountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECF51E2A60032F00285A5F /* ARScanAndCountViewController.swift */; };
 		F1ECF5212A60056500285A5F /* ARBarcodeVisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECF5202A60056500285A5F /* ARBarcodeVisionViewController.swift */; };
-		F1ECF5252A60219700285A5F /* BarcodeResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECF5242A60219700285A5F /* BarcodeResultViewController.swift */; };
 		F1ECF5282A60229800285A5F /* BarcodeResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECF5272A60229800285A5F /* BarcodeResultTableViewCell.swift */; };
-		F1ECF52A2A6023B300285A5F /* BarcodeResultDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECF5292A6023B300285A5F /* BarcodeResultDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F18AE9412A5EC2AD006E7DE5 /* Scanbot Barcode SDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scanbot Barcode SDK.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F18AE9412A5EC2AD006E7DE5 /* ScanbotBarcodeSDKUseCasesDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanbotBarcodeSDKUseCasesDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F18AE9442A5EC2AD006E7DE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F18AE9462A5EC2AD006E7DE5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F18AE9482A5EC2AD006E7DE5 /* BarcodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerViewController.swift; sourceTree = "<group>"; };
@@ -40,7 +38,7 @@
 		F18AE94D2A5EC2AE006E7DE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F18AE9502A5EC2AE006E7DE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F18AE9522A5EC2AE006E7DE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F1A83A472A605A8A00CDE7C8 /* QR_Code.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = QR_Code.jpg; sourceTree = "<group>"; };
+		F1A83C532A6187FF00CDE7C8 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		F1ECF50B2A5F199400285A5F /* UseCasesListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCasesListTableViewController.swift; sourceTree = "<group>"; };
 		F1ECF50D2A5FF89800285A5F /* MultipleBarcodesScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleBarcodesScannerViewController.swift; sourceTree = "<group>"; };
 		F1ECF50F2A5FF95D00285A5F /* BatchBarcodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchBarcodeScannerViewController.swift; sourceTree = "<group>"; };
@@ -52,9 +50,7 @@
 		F1ECF51C2A60028000285A5F /* ARFindAndPickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARFindAndPickViewController.swift; sourceTree = "<group>"; };
 		F1ECF51E2A60032F00285A5F /* ARScanAndCountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARScanAndCountViewController.swift; sourceTree = "<group>"; };
 		F1ECF5202A60056500285A5F /* ARBarcodeVisionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARBarcodeVisionViewController.swift; sourceTree = "<group>"; };
-		F1ECF5242A60219700285A5F /* BarcodeResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeResultViewController.swift; sourceTree = "<group>"; };
 		F1ECF5272A60229800285A5F /* BarcodeResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeResultTableViewCell.swift; sourceTree = "<group>"; };
-		F1ECF5292A6023B300285A5F /* BarcodeResultDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeResultDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,17 +58,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F18AE95A2A5ED8C5006E7DE5 /* ScanbotBarcodeScannerSDK in Frameworks */,
+				F1D4C0502A61A9E900BC3665 /* ScanbotBarcodeScannerSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F162FD4A2A65469A002A19E5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F1ECF5232A60217800285A5F /* Result Cell */,
+				F1A83C522A6187E300CDE7C8 /* Extension */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		F18AE9382A5EC2AD006E7DE5 = {
 			isa = PBXGroup;
 			children = (
-				F18AE9432A5EC2AD006E7DE5 /* Scanbot Barcode SDK */,
+				F18AE9432A5EC2AD006E7DE5 /* ScanbotBarcodeSDKUseCasesDemo */,
 				F18AE9422A5EC2AD006E7DE5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -80,32 +85,32 @@
 		F18AE9422A5EC2AD006E7DE5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F18AE9412A5EC2AD006E7DE5 /* Scanbot Barcode SDK.app */,
+				F18AE9412A5EC2AD006E7DE5 /* ScanbotBarcodeSDKUseCasesDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F18AE9432A5EC2AD006E7DE5 /* Scanbot Barcode SDK */ = {
+		F18AE9432A5EC2AD006E7DE5 /* ScanbotBarcodeSDKUseCasesDemo */ = {
 			isa = PBXGroup;
 			children = (
 				F1ECF5082A5F0F0600285A5F /* Use Cases */,
 				F1ECF5172A5FFF7200285A5F /* AR Use Cases */,
 				F1ECF50B2A5F199400285A5F /* UseCasesListTableViewController.swift */,
-				F1ECF5232A60217800285A5F /* Results */,
+				F18AE94A2A5EC2AD006E7DE5 /* Main.storyboard */,
 				F18AE9442A5EC2AD006E7DE5 /* AppDelegate.swift */,
 				F18AE9462A5EC2AD006E7DE5 /* SceneDelegate.swift */,
-				F18AE94A2A5EC2AD006E7DE5 /* Main.storyboard */,
+				F162FD4A2A65469A002A19E5 /* Helpers */,
 				F1ECF5222A6011D900285A5F /* Supporting Files */,
 			);
-			path = "Scanbot Barcode SDK";
+			path = ScanbotBarcodeSDKUseCasesDemo;
 			sourceTree = "<group>";
 		};
-		F1A83A462A605A7B00CDE7C8 /* Images */ = {
+		F1A83C522A6187E300CDE7C8 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				F1A83A472A605A8A00CDE7C8 /* QR_Code.jpg */,
+				F1A83C532A6187FF00CDE7C8 /* Array+Extension.swift */,
 			);
-			path = Images;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		F1ECF5082A5F0F0600285A5F /* Use Cases */ = {
@@ -136,7 +141,6 @@
 		F1ECF5222A6011D900285A5F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F1A83A462A605A7B00CDE7C8 /* Images */,
 				F18AE94D2A5EC2AE006E7DE5 /* Assets.xcassets */,
 				F18AE94F2A5EC2AE006E7DE5 /* LaunchScreen.storyboard */,
 				F18AE9522A5EC2AE006E7DE5 /* Info.plist */,
@@ -144,30 +148,20 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		F1ECF5232A60217800285A5F /* Results */ = {
-			isa = PBXGroup;
-			children = (
-				F1ECF5242A60219700285A5F /* BarcodeResultViewController.swift */,
-				F1ECF5292A6023B300285A5F /* BarcodeResultDetailsViewController.swift */,
-				F1ECF5262A60227B00285A5F /* Barcode Table Cell */,
-			);
-			path = Results;
-			sourceTree = "<group>";
-		};
-		F1ECF5262A60227B00285A5F /* Barcode Table Cell */ = {
+		F1ECF5232A60217800285A5F /* Result Cell */ = {
 			isa = PBXGroup;
 			children = (
 				F1ECF5272A60229800285A5F /* BarcodeResultTableViewCell.swift */,
 			);
-			path = "Barcode Table Cell";
+			path = "Result Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F18AE9402A5EC2AD006E7DE5 /* Scanbot Barcode SDK */ = {
+		F18AE9402A5EC2AD006E7DE5 /* ScanbotBarcodeSDKUseCasesDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F18AE9552A5EC2AE006E7DE5 /* Build configuration list for PBXNativeTarget "Scanbot Barcode SDK" */;
+			buildConfigurationList = F18AE9552A5EC2AE006E7DE5 /* Build configuration list for PBXNativeTarget "ScanbotBarcodeSDKUseCasesDemo" */;
 			buildPhases = (
 				F18AE93D2A5EC2AD006E7DE5 /* Sources */,
 				F18AE93E2A5EC2AD006E7DE5 /* Frameworks */,
@@ -177,12 +171,12 @@
 			);
 			dependencies = (
 			);
-			name = "Scanbot Barcode SDK";
+			name = ScanbotBarcodeSDKUseCasesDemo;
 			packageProductDependencies = (
-				F18AE9592A5ED8C5006E7DE5 /* ScanbotBarcodeScannerSDK */,
+				F1D4C04F2A61A9E900BC3665 /* ScanbotBarcodeScannerSDK */,
 			);
 			productName = "Scanbot Barcode SDK";
-			productReference = F18AE9412A5EC2AD006E7DE5 /* Scanbot Barcode SDK.app */;
+			productReference = F18AE9412A5EC2AD006E7DE5 /* ScanbotBarcodeSDKUseCasesDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -200,7 +194,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F18AE93C2A5EC2AD006E7DE5 /* Build configuration list for PBXProject "Scanbot Barcode SDK" */;
+			buildConfigurationList = F18AE93C2A5EC2AD006E7DE5 /* Build configuration list for PBXProject "ScanbotBarcodeSDKUseCasesDemo" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -210,13 +204,13 @@
 			);
 			mainGroup = F18AE9382A5EC2AD006E7DE5;
 			packageReferences = (
-				F18AE9582A5ED8C5006E7DE5 /* XCRemoteSwiftPackageReference "scanbot-barcode-scanner-sdk-ios-spm" */,
+				F1D4C04E2A61A9E900BC3665 /* XCRemoteSwiftPackageReference "scanbot-barcode-scanner-sdk-ios-spm" */,
 			);
 			productRefGroup = F18AE9422A5EC2AD006E7DE5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F18AE9402A5EC2AD006E7DE5 /* Scanbot Barcode SDK */,
+				F18AE9402A5EC2AD006E7DE5 /* ScanbotBarcodeSDKUseCasesDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -229,7 +223,6 @@
 				F18AE9512A5EC2AE006E7DE5 /* LaunchScreen.storyboard in Resources */,
 				F18AE94E2A5EC2AE006E7DE5 /* Assets.xcassets in Resources */,
 				F18AE94C2A5EC2AD006E7DE5 /* Main.storyboard in Resources */,
-				F1A83A482A605A8A00CDE7C8 /* QR_Code.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +236,7 @@
 				F1ECF5192A5FFFFA00285A5F /* ARMultiScanViewController.swift in Sources */,
 				F1ECF5142A5FFA7400285A5F /* DistantBarcodesScannerViewController.swift in Sources */,
 				F1ECF5162A5FFD4F00285A5F /* DetectBarcodesOnStillImagesViewController.swift in Sources */,
+				F1A83C542A6187FF00CDE7C8 /* Array+Extension.swift in Sources */,
 				F18AE9492A5EC2AD006E7DE5 /* BarcodeScannerViewController.swift in Sources */,
 				F1ECF51B2A60007500285A5F /* ARSelectScanViewController.swift in Sources */,
 				F1ECF50C2A5F199400285A5F /* UseCasesListTableViewController.swift in Sources */,
@@ -251,12 +245,10 @@
 				F1ECF5122A5FFA1400285A5F /* TinyBarcodesScannerViewController.swift in Sources */,
 				F1ECF5212A60056500285A5F /* ARBarcodeVisionViewController.swift in Sources */,
 				F1ECF5282A60229800285A5F /* BarcodeResultTableViewCell.swift in Sources */,
-				F1ECF52A2A6023B300285A5F /* BarcodeResultDetailsViewController.swift in Sources */,
 				F1ECF51F2A60032F00285A5F /* ARScanAndCountViewController.swift in Sources */,
 				F18AE9452A5EC2AD006E7DE5 /* AppDelegate.swift in Sources */,
 				F18AE9472A5EC2AD006E7DE5 /* SceneDelegate.swift in Sources */,
 				F1ECF51D2A60028000285A5F /* ARFindAndPickViewController.swift in Sources */,
-				F1ECF5252A60219700285A5F /* BarcodeResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,7 +397,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FRUPYT6KB3;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Scanbot Barcode SDK/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "ScanbotBarcodeSDKUseCasesDemo/Supporting Files/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "ScanbotBarcodeSDK: UseCases Demo";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -434,7 +427,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FRUPYT6KB3;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Scanbot Barcode SDK/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "ScanbotBarcodeSDKUseCasesDemo/Supporting Files/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "ScanbotBarcodeSDK: UseCases Demo";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -457,7 +451,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F18AE93C2A5EC2AD006E7DE5 /* Build configuration list for PBXProject "Scanbot Barcode SDK" */ = {
+		F18AE93C2A5EC2AD006E7DE5 /* Build configuration list for PBXProject "ScanbotBarcodeSDKUseCasesDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F18AE9532A5EC2AE006E7DE5 /* Debug */,
@@ -466,7 +460,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F18AE9552A5EC2AE006E7DE5 /* Build configuration list for PBXNativeTarget "Scanbot Barcode SDK" */ = {
+		F18AE9552A5EC2AE006E7DE5 /* Build configuration list for PBXNativeTarget "ScanbotBarcodeSDKUseCasesDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F18AE9562A5EC2AE006E7DE5 /* Debug */,
@@ -478,7 +472,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F18AE9582A5ED8C5006E7DE5 /* XCRemoteSwiftPackageReference "scanbot-barcode-scanner-sdk-ios-spm" */ = {
+		F1D4C04E2A61A9E900BC3665 /* XCRemoteSwiftPackageReference "scanbot-barcode-scanner-sdk-ios-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:doo/scanbot-barcode-scanner-sdk-ios-spm.git";
 			requirement = {
@@ -489,9 +483,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F18AE9592A5ED8C5006E7DE5 /* ScanbotBarcodeScannerSDK */ = {
+		F1D4C04F2A61A9E900BC3665 /* ScanbotBarcodeScannerSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F18AE9582A5ED8C5006E7DE5 /* XCRemoteSwiftPackageReference "scanbot-barcode-scanner-sdk-ios-spm" */;
+			package = F1D4C04E2A61A9E900BC3665 /* XCRemoteSwiftPackageReference "scanbot-barcode-scanner-sdk-ios-spm" */;
 			productName = ScanbotBarcodeScannerSDK;
 		};
 /* End XCSwiftPackageProductDependency section */

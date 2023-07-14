@@ -20,16 +20,17 @@ final class BatchBarcodeScannerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
-                                                                  parentView: self.scannerView,
-                                                                  delegate: self)
+        // Initialize the barcode scanner
+        guard let scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
+                                                                            parentView: self.scannerView,
+                                                                            delegate: self) else { return }
         
-        guard let scannerViewController else { return }
-        
+        // Retrieve the current applied view finder configurations and modify it
         let viewFinderConfiguration = scannerViewController.viewFinderConfiguration
         viewFinderConfiguration.isViewFinderEnabled = true
         viewFinderConfiguration.aspectRatio = SBSDKAspectRatio(width: 1, andHeight: 1)
         
+        // Apply the modified view finder configurations onto the scanner
         scannerViewController.viewFinderConfiguration = viewFinderConfiguration
     }
 }
@@ -39,12 +40,13 @@ extension BatchBarcodeScannerViewController: SBSDKBarcodeScannerViewControllerDe
     func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
                                   didDetectBarcodes codes: [SBSDKBarcodeScannerResult]) {
         
-        codes.forEach { newBarcodeResult in
-            if !self.barcodeResults.contains(where: { previouslyDetectedCode in
-                previouslyDetectedCode.rawTextStringWithExtension == newBarcodeResult.rawTextStringWithExtension &&
-                previouslyDetectedCode.type == newBarcodeResult.type
-            }) {
-                self.barcodeResults.append(newBarcodeResult)
+        // Ignore barcodes that have already been detected
+        codes.forEach { detectedBarcode in
+            
+            // Check detected barcode's name, extension, and type with previously detected barcodes
+            // Ignore barcode If it has already been detected
+            if !self.barcodeResults.contains(barcode: detectedBarcode) {
+                self.barcodeResults.append(detectedBarcode)
             }
         }
         

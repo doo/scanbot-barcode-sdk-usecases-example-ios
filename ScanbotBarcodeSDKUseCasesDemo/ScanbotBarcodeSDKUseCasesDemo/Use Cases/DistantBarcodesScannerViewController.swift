@@ -1,5 +1,5 @@
 //
-//  TinyBarcodesScannerViewController.swift
+//  DistantBarcodesScannerViewController.swift
 //  Scanbot Barcode SDK
 //
 //  Created by Rana Sohaib on 13.07.23.
@@ -8,7 +8,7 @@
 import UIKit
 import ScanbotBarcodeScannerSDK
 
-final class TinyBarcodesScannerViewController: UIViewController {
+final class DistantBarcodesScannerViewController: UIViewController {
     
     @IBOutlet private var scannerView: UIView!
     @IBOutlet private var barcodeImageView: UIImageView!
@@ -19,26 +19,29 @@ final class TinyBarcodesScannerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
-                                                                  parentView: self.scannerView,
-                                                                  delegate: self)
+        // Initialize the barcode scanner
+        guard let scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
+                                                                            parentView: self.scannerView,
+                                                                            delegate: self) else { return }
         
-        guard let scannerViewController else { return }
+        // Retrieve the current applied zoom configurations and modify it
+        let zoomConfiguration = scannerViewController.zoomConfiguration
+        zoomConfiguration.initialZoomFactor = 1.0
         
-        let generalConfiguration = scannerViewController.generalConfiguration
-        generalConfiguration.isFocusLockEnabled = true
-        generalConfiguration.focusLockPosition = 0.1
-        
+        // Retrieve the current applied view finder configurations and modify it
         let viewFinderConfiguration = scannerViewController.viewFinderConfiguration
         viewFinderConfiguration.isViewFinderEnabled = true
         viewFinderConfiguration.aspectRatio = SBSDKAspectRatio(width: 1, andHeight: 1)
         
-        scannerViewController.generalConfiguration = generalConfiguration
+        // Apply the modified zoom configurations onto the scanner
+        scannerViewController.zoomConfiguration = zoomConfiguration
+        
+        // Apply the modified view finder configurations onto the scanner
         scannerViewController.viewFinderConfiguration = viewFinderConfiguration
     }
 }
 
-extension TinyBarcodesScannerViewController: SBSDKBarcodeScannerViewControllerDelegate {
+extension DistantBarcodesScannerViewController: SBSDKBarcodeScannerViewControllerDelegate {
     
     func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
                                   didDetectBarcodes codes: [SBSDKBarcodeScannerResult]) {

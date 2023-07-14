@@ -15,25 +15,31 @@ final class ARSelectScanViewController: UIViewController {
     
     private var scannerViewController: SBSDKBarcodeScannerViewController?
     
-    private var barcodeResults = [SBSDKBarcodeScannerResult]()
+    private var selectedBarcodes = [SBSDKBarcodeScannerResult]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
-                                                                  parentView: self.scannerView,
-                                                                  delegate: self)
+        // Initialize the barcode scanner
+        guard let scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
+                                                                            parentView: self.scannerView,
+                                                                            delegate: self) else { return }
         
-        guard let scannerViewController else { return }
-        
+        // Enable AR Overlay
         scannerViewController.selectionOverlayEnabled = true
+        
+        // Disable automatic selection of the barcodes
         scannerViewController.automaticSelectionEnabled = false
+        
+        // Configures the scanner to exclude barcode's type text from the AR Overlay
         scannerViewController.selectionOverlayTextFormat = .code
         
+        // Set non highlighted colors for the AR OVerlay
         scannerViewController.selectionPolygonColor = .red
         scannerViewController.selectionTextColor = .black
         scannerViewController.selectionTextContainerColor = .red
         
+        // Set highlighted colors for the AR OVerlay
         scannerViewController.selectionHighlightedPolygonColor = .green
         scannerViewController.selectionHighlightedTextColor = .black
         scannerViewController.selectionHighlightedTextContainerColor = .green
@@ -49,26 +55,24 @@ extension ARSelectScanViewController: SBSDKBarcodeScannerViewControllerDelegate 
     func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
                                   shouldHighlight code: SBSDKBarcodeScannerResult) -> Bool {
         
-        if self.barcodeResults.contains(where: { previouslyDetectedCode in
-            previouslyDetectedCode.rawTextStringWithExtension == code.rawTextStringWithExtension &&
-            previouslyDetectedCode.type == code.type
-        }) {
-            return true
-        } else {
-            return false
-        }
+        // Highlight the code if it has been selected
+        return self.selectedBarcodes.contains(barcode: code)
     }
     
     func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
                                   didDetectBarcodes codes: [SBSDKBarcodeScannerResult]) {
         
-        codes.forEach { newBarcodeResult in
-            if !self.barcodeResults.contains(where: { previouslyDetectedCode in
-                previouslyDetectedCode.rawTextStringWithExtension == newBarcodeResult.rawTextStringWithExtension &&
-                previouslyDetectedCode.type == newBarcodeResult.type
-            }) {
-                self.barcodeResults.append(newBarcodeResult)
-            }
+        // When `selectionOverlayEnabled` is set to true
+        // And `automaticSelectionEnabled` is set to false
+        // Then this method only gets called when the barcode is selected
+        
+        // The passed parameter `codes` only contains the barcode which is selected
+        guard let selectedBarcode = codes.first else { return }
+        
+        // Check selected barcode's name, extension, and type with previously selected barcodes
+        // Ignore the barcode If it has already been selected
+        if !self.selectedBarcodes.contains(barcode: selectedBarcode) {
+            self.selectedBarcodes.append(selectedBarcode)
         }
         
         self.resultListTableView.reloadData()
@@ -82,16 +86,16 @@ extension ARSelectScanViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.barcodeResults.count
+        return self.selectedBarcodes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "barCodeResultCell", for: indexPath) as!
         BarcodeResultTableViewCell
         
-        cell.barcodeTextLabel?.text = barcodeResults[indexPath.row].rawTextStringWithExtension
-        cell.barcodeTypeLabel?.text = barcodeResults[indexPath.row].type.name
-        cell.barcodeImageView?.image = barcodeResults[indexPath.row].barcodeImage
+        cell.barcodeTextLabel?.text = selectedBarcodes[indexPath.row].rawTextStringWithExtension
+        cell.barcodeTypeLabel?.text = selectedBarcodes[indexPath.row].type.name
+        cell.barcodeImageView?.image = selectedBarcodes[indexPath.row].barcodeImage
         
         return cell
     }

@@ -1,5 +1,5 @@
 //
-//  MultipleBarcodesScannerViewController.swift
+//  ARMultiScanViewController.swift
 //  Scanbot Barcode SDK
 //
 //  Created by Rana Sohaib on 13.07.23.
@@ -8,7 +8,7 @@
 import UIKit
 import ScanbotBarcodeScannerSDK
 
-final class MultipleBarcodesScannerViewController: UIViewController {
+final class ARMultiScanViewController: UIViewController {
     
     @IBOutlet private var scannerView: UIView!
     @IBOutlet private var resultListTableView: UITableView!
@@ -20,31 +20,37 @@ final class MultipleBarcodesScannerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
-                                                                  parentView: self.scannerView,
-                                                                  delegate: self)
+        // Initialize the barcode scanner
+        guard let scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
+                                                                            parentView: self.scannerView,
+                                                                            delegate: self) else { return }
+        
+        // Enable AR Overlay
+        scannerViewController.selectionOverlayEnabled = true
+        
+        // Enabled automatic selection of the barcodes
+        scannerViewController.automaticSelectionEnabled = true
+        
+        // Configures the scanner to exclude barcode's name and type texts from the AR Overlay
+        scannerViewController.selectionOverlayTextFormat = .none
     }
 }
 
-extension MultipleBarcodesScannerViewController: SBSDKBarcodeScannerViewControllerDelegate {
+extension ARMultiScanViewController: SBSDKBarcodeScannerViewControllerDelegate {
+    
+    func barcodeScannerControllerShouldDetectBarcodes(_ controller: SBSDKBarcodeScannerViewController) -> Bool {
+        return true
+    }
     
     func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
                                   didDetectBarcodes codes: [SBSDKBarcodeScannerResult]) {
         
-        codes.forEach { newBarcodeResult in
-            if !self.barcodeResults.contains(where: { previouslyDetectedCode in
-                previouslyDetectedCode.rawTextStringWithExtension == newBarcodeResult.rawTextStringWithExtension &&
-                previouslyDetectedCode.type == newBarcodeResult.type
-            }) {
-                self.barcodeResults.append(newBarcodeResult)
-            }
-        }
-        
+        self.barcodeResults = codes
         self.resultListTableView.reloadData()
     }
 }
 
-extension MultipleBarcodesScannerViewController: UITableViewDataSource, UITableViewDelegate {
+extension ARMultiScanViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80.0

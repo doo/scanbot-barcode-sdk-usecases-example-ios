@@ -17,18 +17,24 @@ final class ARFindAndPickViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
-                                                                  parentView: self.scannerView,
-                                                                  delegate: self)
+        // Initialize the barcode scanner
+        guard let scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
+                                                                            parentView: self.scannerView,
+                                                                            delegate: self) else { return }
         
-        guard let scannerViewController else { return }
-        
+        // Enable AR Overlay
         scannerViewController.selectionOverlayEnabled = true
+        
+        // Enabled automatic selection of the barcodes
         scannerViewController.automaticSelectionEnabled = true
+        
+        // Configures the scanner to exclude barcode's name and type texts from the AR Overlay
         scannerViewController.selectionOverlayTextFormat = .none
         
+        // Set non highlighted color for the AR OVerlay
         scannerViewController.selectionPolygonColor = .white
         
+        // Set highlighted color for the AR OVerlay
         scannerViewController.selectionHighlightedPolygonColor = .green
     }
 }
@@ -42,6 +48,7 @@ extension ARFindAndPickViewController: SBSDKBarcodeScannerViewControllerDelegate
     func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
                                   shouldHighlight code: SBSDKBarcodeScannerResult) -> Bool {
         
+        // Only highlight the QR-Codes
         return code.type == SBSDKBarcodeTypeQRCode
     }
     

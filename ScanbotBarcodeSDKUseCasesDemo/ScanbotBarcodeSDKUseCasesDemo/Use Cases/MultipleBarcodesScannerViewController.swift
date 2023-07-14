@@ -1,5 +1,5 @@
 //
-//  ARMultiScanViewController.swift
+//  MultipleBarcodesScannerViewController.swift
 //  Scanbot Barcode SDK
 //
 //  Created by Rana Sohaib on 13.07.23.
@@ -8,45 +8,46 @@
 import UIKit
 import ScanbotBarcodeScannerSDK
 
-final class ARMultiScanViewController: UIViewController {
+final class MultipleBarcodesScannerViewController: UIViewController {
     
     @IBOutlet private var scannerView: UIView!
     @IBOutlet private var resultListTableView: UITableView!
     
     private var scannerViewController: SBSDKBarcodeScannerViewController?
     
+    // To store detected barcodes
     private var barcodeResults = [SBSDKBarcodeScannerResult]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Initialize the barcode scanner
         scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
                                                                   parentView: self.scannerView,
                                                                   delegate: self)
-        
-        guard let scannerViewController else { return }
-        
-        scannerViewController.selectionOverlayEnabled = true
-        scannerViewController.automaticSelectionEnabled = true
-        scannerViewController.selectionOverlayTextFormat = .none
     }
 }
 
-extension ARMultiScanViewController: SBSDKBarcodeScannerViewControllerDelegate {
-    
-    func barcodeScannerControllerShouldDetectBarcodes(_ controller: SBSDKBarcodeScannerViewController) -> Bool {
-        return true
-    }
+extension MultipleBarcodesScannerViewController: SBSDKBarcodeScannerViewControllerDelegate {
     
     func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
                                   didDetectBarcodes codes: [SBSDKBarcodeScannerResult]) {
         
-        self.barcodeResults = codes
+        // Ignore barcodes that have already been detected
+        codes.forEach { detectedBarcode in
+            
+            // Check detected barcode's name, extension, and type with previously detected barcodes
+            // Ignore barcode If it has already been detected
+            if !self.barcodeResults.contains(barcode: detectedBarcode) {
+                self.barcodeResults.append(detectedBarcode)
+            }
+        }
+        
         self.resultListTableView.reloadData()
     }
 }
 
-extension ARMultiScanViewController: UITableViewDataSource, UITableViewDelegate {
+extension MultipleBarcodesScannerViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80.0

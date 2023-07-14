@@ -18,10 +18,13 @@ final class DetectBarcodesOnStillImagesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Initialise the barcode scanner with all barcode types
         barcodeScanner = SBSDKBarcodeScanner(types: SBSDKBarcodeType.allTypes())
         
+        // Image containing barcode of type QR-Code
         guard let qrCodeImage = UIImage(named: "QR_Code.jpg") else { return }
         
+        // Detect barcode on the provided image
         guard let barcodeScannerResult = barcodeScanner?.detectBarCodes(on: qrCodeImage)?.first else { return }
         
         barcodeImageView?.image = barcodeScannerResult.barcodeImage
