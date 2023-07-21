@@ -4,14 +4,15 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Root Navigation Controller-->
         <scene sceneID="wLU-Cv-ro7">
             <objects>
-                <navigationController id="Bwl-wW-V8w" sceneMemberID="viewController">
+                <navigationController id="Bwl-wW-V8w" customClass="RootNavigationController" customModule="ScanbotBarcodeSDKUseCasesDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tZa-5e-eHY">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -27,20 +28,20 @@
         <!--UseCasesListTableViewController-->
         <scene sceneID="R2y-22-cPh">
             <objects>
-                <tableViewController id="KNI-GY-Eaq" userLabel="UseCasesListTableViewController" customClass="UseCasesListTableViewController" customModule="Scanbot_Barcode_SDK" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="XJG-Q8-Dmn">
+                <tableViewController id="KNI-GY-Eaq" userLabel="UseCasesListTableViewController" customClass="UseCasesListTableViewController" customModule="ScanbotBarcodeSDKUseCasesDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="XJG-Q8-Dmn">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <label key="tableFooterView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All features will only work for 1 minute.   Copyright (c) 2022 doo GmbH. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="x8z-ko-mef">
-                            <rect key="frame" x="0.0" y="679.33333015441906" width="393" height="108"/>
+                        <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kTv-Da-oAX">
+                            <rect key="frame" x="0.0" y="834.33333015441906" width="393" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <sections>
-                            <tableViewSection headerTitle="Use Cases" id="GfU-3z-rph" userLabel="Use Cases">
+                            <tableViewSection headerTitle="Barcode Scanning Use Cases" id="GfU-3z-rph" userLabel="Use Cases">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="50" id="yAH-b2-ovl" userLabel="Scanning Single Barcode">
                                         <rect key="frame" x="0.0" y="55.333332061767578" width="393" height="50"/>
@@ -49,7 +50,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scanning Single Barcode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8T-JY-Kkd">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scanning Single Barcodes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8T-JY-Kkd">
                                                     <rect key="frame" x="20" y="11" width="334.66666666666669" height="28"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -203,7 +204,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AR MultiScan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0C9-F2-B04">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AR-MultiScan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0C9-F2-B04">
                                                     <rect key="frame" x="20" y="11" width="334.66666666666669" height="28"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -228,7 +229,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AR SelectScan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8j-T4-4m1">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AR-SelectScan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8j-T4-4m1">
                                                     <rect key="frame" x="20" y="11" width="334.66666666666669" height="28"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -253,7 +254,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AR FindAndPick" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYb-wU-ZcF">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AR-FindAndPick" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYb-wU-ZcF">
                                                     <rect key="frame" x="20" y="11" width="334.66666666666669" height="28"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -278,7 +279,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AR ScanAndCount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKb-FF-ta4">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AR-ScanAndCount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKb-FF-ta4">
                                                     <rect key="frame" x="20" y="11" width="334.66666666666669" height="28"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -296,30 +297,106 @@
                                             <segue destination="XBe-Ts-TFh" kind="show" id="BZ3-CG-fmt"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="50" id="SzG-8z-Bbd" userLabel="AR BarcodeVision">
-                                        <rect key="frame" x="0.0" y="611.33333015441895" width="393" height="50"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="205" id="WBV-Bf-X0l" userLabel="Banner" customClass="BannerUITableViewCell" customModule="ScanbotBarcodeSDKUseCasesDemo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="611.33333015441895" width="393" height="205"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SzG-8z-Bbd" id="HWw-TI-fUm">
-                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="50"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WBV-Bf-X0l" id="EwD-cf-SY1">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="205"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AR BarcodeVision" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SNV-hY-JA5">
-                                                    <rect key="frame" x="20" y="11" width="334.66666666666669" height="28"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gbB-IH-LPT">
+                                                    <rect key="frame" x="20" y="11" width="353" height="183"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="kw8-kg-Cft">
+                                                            <rect key="frame" x="16" y="16" width="321" height="151"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Having trouble with integrating?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKp-cU-Zza">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="204.33333333333334" height="61"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRJ-Fh-KRs">
+                                                                    <rect key="frame" x="0.0" y="77" width="131.33333333333334" height="38"/>
+                                                                    <color key="backgroundColor" name="AccentColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="38" id="dxq-kh-WgT"/>
+                                                                    </constraints>
+                                                                    <state key="normal" title="Button"/>
+                                                                    <buttonConfiguration key="configuration" style="plain" title="Contact Support">
+                                                                        <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
+                                                                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </buttonConfiguration>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                            <real key="value" value="8"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                    <connections>
+                                                                        <action selector="contactSupportTapped:" destination="WBV-Bf-X0l" eventType="touchUpInside" id="crD-RP-5i6"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bqp-fv-kSw">
+                                                                    <rect key="frame" x="0.0" y="131" width="240" height="20"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBB-Lr-7Pt">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="240" height="20"/>
+                                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <attributedString key="attributedText">
+                                                                                <fragment content="Get your trial license now">
+                                                                                    <attributes>
+                                                                                        <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                                                        <color key="NSColor" red="0.78431372549019607" green="0.098039215686274508" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                        <font key="NSFont" size="16" name="SFMono-Regular"/>
+                                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                                                        <integer key="NSUnderline" value="1"/>
+                                                                                        <color key="NSUnderlineColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                    </attributes>
+                                                                                </fragment>
+                                                                            </attributedString>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BmD-uj-Oq3">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="240" height="20"/>
+                                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                            <connections>
+                                                                                <action selector="getLicenseTapped:" destination="WBV-Bf-X0l" eventType="touchUpInside" id="8IA-73-Lni"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstItem="BmD-uj-Oq3" firstAttribute="leading" secondItem="bqp-fv-kSw" secondAttribute="leading" id="1w3-yR-DgZ"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="BmD-uj-Oq3" secondAttribute="bottom" id="LSN-8W-DIy"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="BmD-uj-Oq3" secondAttribute="trailing" id="Qq0-lT-iMg"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="BBB-Lr-7Pt" secondAttribute="trailing" id="WhN-xS-ulN"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="BBB-Lr-7Pt" secondAttribute="bottom" id="Xyd-lb-jGn"/>
+                                                                        <constraint firstItem="BmD-uj-Oq3" firstAttribute="top" secondItem="bqp-fv-kSw" secondAttribute="top" id="f8K-r9-Liz"/>
+                                                                        <constraint firstItem="BBB-Lr-7Pt" firstAttribute="leading" secondItem="bqp-fv-kSw" secondAttribute="leading" id="ldd-lh-0M7"/>
+                                                                        <constraint firstAttribute="height" constant="20" id="np0-fd-tN9"/>
+                                                                        <constraint firstItem="BBB-Lr-7Pt" firstAttribute="top" secondItem="bqp-fv-kSw" secondAttribute="top" id="xul-fN-om7"/>
+                                                                    </constraints>
+                                                                </view>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" name="Banner Red"/>
+                                                    <constraints>
+                                                        <constraint firstItem="kw8-kg-Cft" firstAttribute="top" secondItem="gbB-IH-LPT" secondAttribute="top" constant="16" id="CEe-Wy-mF3"/>
+                                                        <constraint firstItem="kw8-kg-Cft" firstAttribute="leading" secondItem="gbB-IH-LPT" secondAttribute="leading" constant="16" id="iOu-J8-0Aq"/>
+                                                        <constraint firstAttribute="bottom" secondItem="kw8-kg-Cft" secondAttribute="bottom" constant="16" id="k4i-Ix-CcA"/>
+                                                        <constraint firstAttribute="trailing" secondItem="kw8-kg-Cft" secondAttribute="trailing" constant="16" id="zAf-xx-rVJ"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="SNV-hY-JA5" secondAttribute="bottom" id="8Ai-ez-BI5"/>
-                                                <constraint firstItem="SNV-hY-JA5" firstAttribute="leading" secondItem="HWw-TI-fUm" secondAttribute="leadingMargin" id="Byf-c1-XXy"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="SNV-hY-JA5" secondAttribute="trailing" id="J3j-h5-peK"/>
-                                                <constraint firstItem="SNV-hY-JA5" firstAttribute="top" secondItem="HWw-TI-fUm" secondAttribute="topMargin" id="suk-ZH-tCh"/>
+                                                <constraint firstItem="gbB-IH-LPT" firstAttribute="top" secondItem="EwD-cf-SY1" secondAttribute="topMargin" id="2cN-bv-Dmc"/>
+                                                <constraint firstItem="gbB-IH-LPT" firstAttribute="leading" secondItem="EwD-cf-SY1" secondAttribute="leadingMargin" id="Luy-1h-ghF"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="gbB-IH-LPT" secondAttribute="bottom" id="Uj6-bw-fGu"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="gbB-IH-LPT" secondAttribute="trailing" id="nO1-n5-koe"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="lmo-kg-qFS" kind="show" id="NLr-pX-IWg"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -335,10 +412,10 @@
             </objects>
             <point key="canvasLocation" x="-702" y="0.0"/>
         </scene>
-        <!--Scanning Single Barcode-->
+        <!--Barcode Scanner View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="BarcodeScannerViewController" customModule="Scanbot_Barcode_SDK" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="BarcodeScannerViewController" customModule="ScanbotBarcodeSDKUseCasesDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YVU-FD-UTT"/>
                         <viewControllerLayoutGuide type="bottom" id="ime-df-naU"/>
@@ -354,23 +431,33 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J9Y-lf-76K">
                                 <rect key="frame" x="16" y="688" width="361" height="130"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4uh-Sd-Za5">
-                                        <rect key="frame" x="16" y="27.666666666666629" width="329" height="75"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4uh-Sd-Za5">
+                                        <rect key="frame" x="16" y="11.999999999999993" width="329" height="106.33333333333331"/>
                                         <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Point the camera at a barcode" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Mc-r4-eKY">
+                                                <rect key="frame" x="50.333333333333329" y="0.0" width="228.33333333333337" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1SE-KU-rKR">
-                                                <rect key="frame" x="129.66666666666666" y="0.0" width="70" height="70"/>
+                                                <rect key="frame" x="129.66666666666666" y="28.333333333333371" width="70" height="70"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="70" id="fxy-hU-yg7"/>
                                                     <constraint firstAttribute="height" constant="70" id="na8-6a-Kz4"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6JZ-MG-7QA">
-                                                <rect key="frame" x="164.66666666666666" y="75" width="0.0" height="0.0"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="6JZ-MG-7QA">
+                                                <rect key="frame" x="5" y="106.33333333333337" width="319" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="6JZ-MG-7QA" firstAttribute="leading" secondItem="4uh-Sd-Za5" secondAttribute="leading" constant="5" id="0hv-70-s9x"/>
+                                            <constraint firstAttribute="trailing" secondItem="6JZ-MG-7QA" secondAttribute="trailing" constant="5" id="fjy-QB-1qy"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -395,7 +482,7 @@
                             <constraint firstItem="J9Y-lf-76K" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="wfB-pz-QDE"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Scanning Single Barcode" id="fHa-ed-mKr"/>
+                    <navigationItem key="navigationItem" id="fHa-ed-mKr"/>
                     <connections>
                         <outlet property="barcodeImageView" destination="1SE-KU-rKR" id="S5d-J2-xvG"/>
                         <outlet property="barcodeTextLabel" destination="6JZ-MG-7QA" id="ybX-VZ-aID"/>
@@ -406,10 +493,10 @@
             </objects>
             <point key="canvasLocation" x="-2502" y="930"/>
         </scene>
-        <!--Scanning Multiple Barcodes-->
+        <!--Multiple Barcodes Scanner View Controller-->
         <scene sceneID="2m7-gH-fNa">
             <objects>
-                <viewController id="pD3-7r-0XG" customClass="MultipleBarcodesScannerViewController" customModule="Scanbot_Barcode_SDK" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pD3-7r-0XG" customClass="MultipleBarcodesScannerViewController" customModule="ScanbotBarcodeSDKUseCasesDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wJC-my-5IL"/>
                         <viewControllerLayoutGuide type="bottom" id="jpv-Hk-Daf"/>
@@ -426,7 +513,7 @@
                                 <rect key="frame" x="16" y="614.33333333333337" width="361" height="203.66666666666663"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="barCodeResultCell" rowHeight="100" id="9aU-Te-i63" customClass="BarcodeResultTableViewCell" customModule="Scanbot_Barcode_SDK" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="barCodeResultCell" rowHeight="100" id="9aU-Te-i63" customClass="BarcodeResultTableViewCell" customModule="ScanbotBarcodeSDKUseCasesDemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="361" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9aU-Te-i63" id="fOR-r1-ag0">
@@ -490,7 +577,7 @@
                             <constraint firstAttribute="trailing" secondItem="Dft-jC-QK9" secondAttribute="trailing" id="v3G-j8-UdO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Scanning Multiple Barcodes" id="rfZ-gX-NuU"/>
+                    <navigationItem key="navigationItem" id="rfZ-gX-NuU"/>
                     <connections>
                         <outlet property="resultListTableView" destination="4pT-GX-8KS" id="rFC-CS-A0w"/>
                         <outlet property="scannerView" destination="Dft-jC-QK9" id="gbs-1E-QgP"/>
@@ -500,10 +587,10 @@
             </objects>
             <point key="canvasLocation" x="-1784" y="930"/>
         </scene>
-        <!--Batch Scanning-->
+        <!--Batch Barcode Scanner View Controller-->
         <scene sceneID="3dr-xm-LMp">
             <objects>
-                <viewController id="tZQ-PC-6g1" customClass="BatchBarcodeScannerViewController" customModule="Scanbot_Barcode_SDK" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tZQ-PC-6g1" customClass="BatchBarcodeScannerViewController" customModule="ScanbotBarcodeSDKUseCasesDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kdj-da-A0Z"/>
                         <viewControllerLayoutGuide type="bottom" id="Dwg-pO-wsD"/>
@@ -520,7 +607,7 @@
                                 <rect key="frame" x="16" y="614.33333333333337" width="361" height="203.66666666666663"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="barCodeResultCell" rowHeight="100" id="hfe-ft-Bef" customClass="BarcodeResultTableViewCell" customModule="Scanbot_Barcode_SDK" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="barCodeResultCell" rowHeight="100" id="hfe-ft-Bef" customClass="BarcodeResultTableViewCell" customModule="ScanbotBarcodeSDKUseCasesDemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="361" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hfe-ft-Bef" id="aT1-jZ-EI6">
@@ -584,7 +671,7 @@
                             <constraint firstItem="GMj-n6-Wn3" firstAttribute="height" secondItem="5V6-4K-Fai" secondAttribute="height" multiplier="0.6" id="q6V-GC-yFL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Batch Scanning" id="jjV-xM-hck"/>
+                    <navigationItem key="navigationItem" id="jjV-xM-hck"/>
                     <connections>
                         <outlet property="resultListTableView" destination="qQx-KZ-8oM" id="8fK-EZ-qHC"/>
                         <outlet property="scannerView" destination="GMj-n6-Wn3" id="Bkg-hU-eRJ"/>
@@ -594,10 +681,10 @@
             </objects>
             <point key="canvasLocation" x="-1077" y="930"/>
         </scene>
-        <!--Scanning Tiny Barcodes-->
+        <!--Tiny Barcodes Scanner View Controller-->
         <scene sceneID="8a1-XQ-q0l">
             <objects>
-                <viewController id="4tY-p7-WrM" customClass="TinyBarcodesScannerViewController" customModule="Scanbot_Barcode_SDK" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4tY-p7-WrM" customClass="TinyBarcodesScannerViewController" customModule="ScanbotBarcodeSDKUseCasesDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gBY-3u-93P"/>
                         <viewControllerLayoutGuide type="bottom" id="jRY-cy-KrW"/>
@@ -613,23 +700,33 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ldh-3t-fbR">
                                 <rect key="frame" x="16" y="688" width="361" height="130"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="hCV-yu-T1l">
-                                        <rect key="frame" x="16" y="27.666666666666629" width="329" height="75"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hCV-yu-T1l">
+                                        <rect key="frame" x="16" y="11.999999999999993" width="329" height="106.33333333333331"/>
                                         <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Point the camera at a barcode" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zj5-tr-mYx">
+                                                <rect key="frame" x="50.333333333333329" y="0.0" width="228.33333333333337" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZGh-al-rhp">
-                                                <rect key="frame" x="129.66666666666666" y="0.0" width="70" height="70"/>
+                                                <rect key="frame" x="129.66666666666666" y="28.333333333333371" width="70" height="70"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="70" id="VEf-u5-THz"/>
                                                     <constraint firstAttribute="height" constant="70" id="vbF-xe-nQG"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sM-XA-Qk9">
-                                                <rect key="frame" x="164.66666666666666" y="75" width="0.0" height="0.0"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="2sM-XA-Qk9">
+                                                <rect key="frame" x="5" y="106.33333333333337" width="319" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="2sM-XA-Qk9" secondAttribute="trailing" constant="5" id="C3k-Pm-iKS"/>
+                                            <constraint firstItem="2sM-XA-Qk9" firstAttribute="leading" secondItem="hCV-yu-T1l" secondAttribute="leading" constant="5" id="X2G-93-9cE"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -655,7 +752,7 @@
                             <constraint firstItem="Ldh-3t-fbR" firstAttribute="trailing" secondItem="h0V-ud-DAY" secondAttribute="trailingMargin" id="fhQ-Ym-ziL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Scanning Tiny Barcodes" id="gxV-Dr-3RM"/>
+                    <navigationItem key="navigationItem" id="gxV-Dr-3RM"/>
                     <connections>
                         <outlet property="barcodeImageView" destination="ZGh-al-rhp" id="888-lZ-8pw"/>
                         <outlet property="barcodeTextLabel" destination="2sM-XA-Qk9" id="EUb-ve-xW7"/>
@@ -666,10 +763,10 @@
             </objects>
             <point key="canvasLocation" x="-363" y="930"/>
         </scene>
-        <!--Scanning Distant Barcodes-->
+        <!--Distant Barcodes Scanner View Controller-->
         <scene sceneID="gJT-jl-UfG">
             <objects>
-                <viewController id="jHD-KD-U6C" customClass="DistantBarcodesScannerViewController" customModule="Scanbot_Barcode_SDK" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jHD-KD-U6C" customClass="DistantBarcodesScannerViewController" customModule="ScanbotBarcodeSDKUseCasesDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Iga-Uw-DaP"/>
                         <viewControllerLayoutGuide type="bottom" id="jw8-zM-UJu"/>
@@ -685,23 +782,33 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rEz-J2-1Gg">
                                 <rect key="frame" x="16" y="688" width="361" height="130"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="lGM-dB-418">
-                                        <rect key="frame" x="16" y="27.666666666666629" width="329" height="75"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lGM-dB-418">
+                                        <rect key="frame" x="16" y="11.999999999999993" width="329" height="106.33333333333331"/>
                                         <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Point the camera at a barcode" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6by-Zh-s7z">
+                                                <rect key="frame" x="50.333333333333329" y="0.0" width="228.33333333333337" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oz1-0i-d5X">
-                                                <rect key="frame" x="129.66666666666666" y="0.0" width="70" height="70"/>
+                                                <rect key="frame" x="129.66666666666666" y="28.333333333333371" width="70" height="70"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="70" id="5Ab-Ob-NxN"/>
                                                     <constraint firstAttribute="height" constant="70" id="WRZ-vu-9WM"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVw-sN-XeE">
-                                                <rect key="frame" x="164.66666666666666" y="75" width="0.0" height="0.0"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="SVw-sN-XeE">
+                                                <rect key="frame" x="5" y="106.33333333333337" width="319" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="SVw-sN-XeE" secondAttribute="trailing" constant="5" id="PG2-KA-JEI"/>
+                                            <constraint firstItem="SVw-sN-XeE" firstAttribute="leading" secondItem="lGM-dB-418" secondAttribute="leading" constant="5" id="kJN-2l-9QN"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -726,7 +833,7 @@
                             <constraint firstAttribute="trailing" secondItem="pZa-mq-5c1" secondAttribute="trailing" id="Wxc-TT-oU1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Scanning Distant Barcodes" id="3NB-5b-USm"/>
+                    <navigationItem key="navigationItem" id="3NB-5b-USm"/>
                     <connections>
                         <outlet property="barcodeImageView" destination="oz1-0i-d5X" id="uhJ-oG-IgV"/>
                         <outlet property="barcodeTextLabel" destination="SVw-sN-XeE" id="dtp-ic-kQA"/>
@@ -737,10 +844,10 @@
             </objects>
             <point key="canvasLocation" x="340" y="930"/>
         </scene>
-        <!--Detect Barcodes on Still Image-->
+        <!--Detect Barcodes On Still Images View Controller-->
         <scene sceneID="NNf-6m-JDZ">
             <objects>
-                <viewController id="jUa-nD-fk0" customClass="DetectBarcodesOnStillImagesViewController" customModule="Scanbot_Barcode_SDK" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jUa-nD-fk0" customClass="DetectBarcodesOnStillImagesViewController" customModule="ScanbotBarcodeSDKUseCasesDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="z1O-Wn-r88"/>
                         <viewControllerLayoutGuide type="bottom" id="dGR-vV-XtV"/>
@@ -749,38 +856,79 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9A9-jO-77A">
-                                <rect key="frame" x="16" y="103" width="361" height="749"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zDc-RC-dNe">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="200"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="P61-KC-R9k"/>
-                                        </constraints>
-                                    </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MkA-lp-JjZ">
-                                        <rect key="frame" x="0.0" y="200" width="361" height="549"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5jS-zT-ZdP">
+                                <rect key="frame" x="16" y="103" width="361" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="barCodeResultCell" rowHeight="100" id="vn3-9f-nc1" customClass="BarcodeResultTableViewCell" customModule="ScanbotBarcodeSDKUseCasesDemo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="361" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vn3-9f-nc1" id="lBI-kS-iPa">
+                                            <rect key="frame" x="0.0" y="0.0" width="361" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idl-Tb-Mma">
+                                                    <rect key="frame" x="89" y="11" width="252" height="65"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCd-Px-efP">
+                                                    <rect key="frame" x="89" y="75.666666666666671" width="26" height="13.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8uM-oy-hJF">
+                                                    <rect key="frame" x="16" y="7" width="65" height="65"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="65" id="5aO-PA-tYd"/>
+                                                        <constraint firstAttribute="height" constant="65" id="MSr-2o-Egx"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="idl-Tb-Mma" firstAttribute="leading" secondItem="8uM-oy-hJF" secondAttribute="trailing" constant="8" id="0CC-xA-Od1"/>
+                                                <constraint firstItem="8uM-oy-hJF" firstAttribute="top" secondItem="lBI-kS-iPa" secondAttribute="top" constant="7" id="5DY-Hf-L4x"/>
+                                                <constraint firstItem="eCd-Px-efP" firstAttribute="bottom" secondItem="lBI-kS-iPa" secondAttribute="bottomMargin" id="AMn-6d-WfN"/>
+                                                <constraint firstItem="idl-Tb-Mma" firstAttribute="trailing" secondItem="lBI-kS-iPa" secondAttribute="trailingMargin" id="Ch9-sE-a4A"/>
+                                                <constraint firstItem="eCd-Px-efP" firstAttribute="leading" secondItem="8uM-oy-hJF" secondAttribute="trailing" constant="8" id="FnW-04-332"/>
+                                                <constraint firstItem="8uM-oy-hJF" firstAttribute="leading" secondItem="lBI-kS-iPa" secondAttribute="leading" constant="16" id="Mdh-6R-dB8"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eCd-Px-efP" secondAttribute="trailing" constant="20" symbolic="YES" id="YBa-ld-oAM"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="idl-Tb-Mma" secondAttribute="bottom" constant="13" id="bZ6-9y-8rk"/>
+                                                <constraint firstItem="idl-Tb-Mma" firstAttribute="top" secondItem="lBI-kS-iPa" secondAttribute="topMargin" id="gLb-rt-0V1"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="barcodeImageView" destination="8uM-oy-hJF" id="JN1-2B-8LJ"/>
+                                            <outlet property="barcodeTextLabel" destination="idl-Tb-Mma" id="FOx-l0-4RB"/>
+                                            <outlet property="barcodeTypeLabel" destination="eCd-Px-efP" id="8ce-9f-DDH"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="jUa-nD-fk0" id="5hL-qV-QP8"/>
+                                    <outlet property="delegate" destination="jUa-nD-fk0" id="lx6-e1-HMa"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="9A9-jO-77A" secondAttribute="trailing" id="3UP-7a-Cnd"/>
-                            <constraint firstItem="9A9-jO-77A" firstAttribute="leading" secondItem="vpN-qd-ikd" secondAttribute="leadingMargin" id="NC1-IE-Llw"/>
-                            <constraint firstItem="9A9-jO-77A" firstAttribute="top" secondItem="vpN-qd-ikd" secondAttribute="topMargin" id="f4K-aY-asq"/>
-                            <constraint firstAttribute="bottom" secondItem="9A9-jO-77A" secondAttribute="bottom" id="uev-L5-lEi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5jS-zT-ZdP" secondAttribute="trailing" id="SD0-7l-dys"/>
+                            <constraint firstItem="5jS-zT-ZdP" firstAttribute="top" secondItem="z1O-Wn-r88" secondAttribute="bottom" id="TeT-q3-ih1"/>
+                            <constraint firstItem="dGR-vV-XtV" firstAttribute="top" secondItem="5jS-zT-ZdP" secondAttribute="bottom" id="f0D-6S-jBj"/>
+                            <constraint firstItem="5jS-zT-ZdP" firstAttribute="leading" secondItem="vpN-qd-ikd" secondAttribute="leadingMargin" id="vw2-xD-Lf4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Detect Barcodes on Still Image" id="2xx-O8-kaK"/>
+                    <navigationItem key="navigationItem" id="2xx-O8-kaK">
+                        <barButtonItem key="rightBarButtonItem" title="Import" id="76n-VT-sp3">
+                            <connections>
+                                <action selector="importButtonTapped:" destination="jUa-nD-fk0" id="anm-0H-XPn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="barcodeImageView" destination="zDc-RC-dNe" id="6lf-6D-J0R"/>
-                        <outlet property="barcodeTextLabel" destination="MkA-lp-JjZ" id="ObN-yn-8Pa"/>
+                        <outlet property="tableView" destination="5jS-zT-ZdP" id="wJf-3r-dEf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QNU-lp-Ufq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -790,7 +938,7 @@
         <!--AR Multi Scan View Controller-->
         <scene sceneID="7Dr-gH-Yvd">
             <objects>
-                <viewController id="eyr-co-dEV" userLabel="AR Multi Scan View Controller" customClass="ARMultiScanViewController" customModule="Scanbot_Barcode_SDK" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="eyr-co-dEV" userLabel="AR Multi Scan View Controller" customClass="ARMultiScanViewController" customModule="ScanbotBarcodeSDKUseCasesDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KMQ-ZI-ZyJ"/>
                         <viewControllerLayoutGuide type="bottom" id="qkH-rQ-28x"/>
@@ -807,7 +955,7 @@
                                 <rect key="frame" x="16" y="614.33333333333337" width="361" height="203.66666666666663"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="barCodeResultCell" rowHeight="100" id="3wM-PM-y0u" customClass="BarcodeResultTableViewCell" customModule="Scanbot_Barcode_SDK" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="barCodeResultCell" rowHeight="100" id="3wM-PM-y0u" customClass="BarcodeResultTableViewCell" customModule="ScanbotBarcodeSDKUseCasesDemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="361" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3wM-PM-y0u" id="dV1-Yl-yHZ">
@@ -871,7 +1019,7 @@
                             <constraint firstItem="GwF-8d-Ehb" firstAttribute="trailing" secondItem="iGx-Se-6bw" secondAttribute="trailingMargin" id="z1l-C3-M0l"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="AR MultiScan" id="7P7-IZ-1Lx"/>
+                    <navigationItem key="navigationItem" id="7P7-IZ-1Lx"/>
                     <connections>
                         <outlet property="resultListTableView" destination="GwF-8d-Ehb" id="Qd1-zI-XPB"/>
                         <outlet property="scannerView" destination="bie-v2-tMA" id="Fv9-Kf-iy3"/>
@@ -884,7 +1032,7 @@
         <!--AR Select Scan View Controller-->
         <scene sceneID="Vbl-SS-dTo">
             <objects>
-                <viewController id="8xH-wv-CQN" userLabel="AR Select Scan View Controller" customClass="ARSelectScanViewController" customModule="Scanbot_Barcode_SDK" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8xH-wv-CQN" userLabel="AR Select Scan View Controller" customClass="ARSelectScanViewController" customModule="ScanbotBarcodeSDKUseCasesDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WSo-Fq-12S"/>
                         <viewControllerLayoutGuide type="bottom" id="lZs-ou-Pbo"/>
@@ -901,7 +1049,7 @@
                                 <rect key="frame" x="16" y="614.33333333333337" width="361" height="203.66666666666663"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="barCodeResultCell" rowHeight="100" id="M3n-Hm-krG" customClass="BarcodeResultTableViewCell" customModule="Scanbot_Barcode_SDK" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="barCodeResultCell" rowHeight="100" id="M3n-Hm-krG" customClass="BarcodeResultTableViewCell" customModule="ScanbotBarcodeSDKUseCasesDemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="361" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M3n-Hm-krG" id="1sv-4N-q8d">
@@ -965,7 +1113,7 @@
                             <constraint firstItem="Hl4-4D-6dl" firstAttribute="trailing" secondItem="FlB-Ec-Bfq" secondAttribute="trailingMargin" id="zmP-mS-cBa"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="AR SelectScan" id="DFc-qf-f04"/>
+                    <navigationItem key="navigationItem" id="DFc-qf-f04"/>
                     <connections>
                         <outlet property="resultListTableView" destination="Hl4-4D-6dl" id="t6N-fM-Mnl"/>
                         <outlet property="scannerView" destination="blX-RT-KLw" id="ALx-5z-RH4"/>
@@ -978,7 +1126,7 @@
         <!--AR Find And Scan View Controller-->
         <scene sceneID="yQi-uc-l85">
             <objects>
-                <viewController id="K7R-kz-eDk" userLabel="AR Find And Scan View Controller" customClass="ARFindAndPickViewController" customModule="Scanbot_Barcode_SDK" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="K7R-kz-eDk" userLabel="AR Find And Scan View Controller" customClass="ARFindAndPickViewController" customModule="ScanbotBarcodeSDKUseCasesDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="34E-me-WWs"/>
                         <viewControllerLayoutGuide type="bottom" id="PJt-Ri-l2M"/>
@@ -1000,7 +1148,7 @@
                             <constraint firstItem="PJt-Ri-l2M" firstAttribute="top" secondItem="dHY-Ma-Vju" secondAttribute="bottom" id="dDT-FW-PqG"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="AR FindAndPick" id="8Ek-gp-WUD"/>
+                    <navigationItem key="navigationItem" id="8Ek-gp-WUD"/>
                     <connections>
                         <outlet property="scannerView" destination="dHY-Ma-Vju" id="Ncr-rU-tbz"/>
                     </connections>
@@ -1012,7 +1160,7 @@
         <!--AR Scan And Count View Controller-->
         <scene sceneID="XhF-m3-4Tw">
             <objects>
-                <viewController id="XBe-Ts-TFh" userLabel="AR Scan And Count View Controller" customClass="ARScanAndCountViewController" customModule="Scanbot_Barcode_SDK" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XBe-Ts-TFh" userLabel="AR Scan And Count View Controller" customClass="ARScanAndCountViewController" customModule="ScanbotBarcodeSDKUseCasesDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Xpg-wU-vhq"/>
                         <viewControllerLayoutGuide type="bottom" id="oxd-IE-an7"/>
@@ -1068,7 +1216,7 @@
                             <constraint firstAttribute="trailing" secondItem="xfm-AE-4H1" secondAttribute="trailing" id="pNA-at-4n5"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="AR ScanAndCount" id="7Ls-Lp-yBE"/>
+                    <navigationItem key="navigationItem" id="7Ls-Lp-yBE"/>
                     <connections>
                         <outlet property="currentBarcodesFound" destination="DHq-5p-sR7" id="te9-f7-7P2"/>
                         <outlet property="scannerView" destination="xfm-AE-4H1" id="uOm-8a-QEk"/>
@@ -1079,45 +1227,14 @@
             </objects>
             <point key="canvasLocation" x="3366" y="369"/>
         </scene>
-        <!--AR Barcode Vision View Controller-->
-        <scene sceneID="yBN-0p-Y3o">
-            <objects>
-                <viewController id="lmo-kg-qFS" userLabel="AR Barcode Vision View Controller" customClass="ARBarcodeVisionViewController" customModule="Scanbot_Barcode_SDK" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ako-4R-Mwh"/>
-                        <viewControllerLayoutGuide type="bottom" id="Ayx-Kf-7lN"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="HM5-82-N02">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ozc-3h-ryc">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Ozc-3h-ryc" firstAttribute="top" secondItem="ako-4R-Mwh" secondAttribute="bottom" id="07P-3V-olw"/>
-                            <constraint firstAttribute="trailing" secondItem="Ozc-3h-ryc" secondAttribute="trailing" id="9Bh-eQ-9lE"/>
-                            <constraint firstItem="Ayx-Kf-7lN" firstAttribute="top" secondItem="Ozc-3h-ryc" secondAttribute="bottom" id="Ue5-ZB-9vN"/>
-                            <constraint firstItem="Ozc-3h-ryc" firstAttribute="leading" secondItem="HM5-82-N02" secondAttribute="leading" id="eAO-Oj-bJv"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="AR Barcode Vision" id="hda-tX-JVC"/>
-                    <connections>
-                        <outlet property="scannerView" destination="Ozc-3h-ryc" id="gqV-MO-ne6"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QJt-Eh-1ZS" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2517" y="461"/>
-        </scene>
     </scenes>
     <resources>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <namedColor name="AccentColor">
+            <color red="0.7839999794960022" green="0.097999997437000275" blue="0.23499999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Banner Red">
+            <color red="1" green="0.92941176470588238" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

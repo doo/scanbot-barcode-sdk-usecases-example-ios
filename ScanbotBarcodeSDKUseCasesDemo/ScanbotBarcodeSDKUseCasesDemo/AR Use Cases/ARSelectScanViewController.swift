@@ -34,15 +34,15 @@ final class ARSelectScanViewController: UIViewController {
         // Configures the scanner to exclude barcode's type text from the AR Overlay
         scannerViewController.selectionOverlayTextFormat = .code
         
-        // Set non highlighted colors for the AR OVerlay
-        scannerViewController.selectionPolygonColor = .red
+        // Set non highlighted (non-selected) colors for the AR Overlay
+        scannerViewController.selectionPolygonColor = UIColor(red: 255/255, green: 187/255, blue: 51/255, alpha: 1)
         scannerViewController.selectionTextColor = .black
-        scannerViewController.selectionTextContainerColor = .red
+        scannerViewController.selectionTextContainerColor = UIColor(red: 255/255, green: 187/255, blue: 51/255, alpha: 1)
         
-        // Set highlighted colors for the AR OVerlay
-        scannerViewController.selectionHighlightedPolygonColor = .green
+        // Set highlighted (selected) colors for the AR Overlay
+        scannerViewController.selectionHighlightedPolygonColor = UIColor(red: 85/255, green: 187/255, blue: 119/255, alpha: 1)
         scannerViewController.selectionHighlightedTextColor = .black
-        scannerViewController.selectionHighlightedTextContainerColor = .green
+        scannerViewController.selectionHighlightedTextContainerColor = UIColor(red: 85/255, green: 187/255, blue: 119/255, alpha: 1)
     }
 }
 
@@ -59,6 +59,7 @@ extension ARSelectScanViewController: SBSDKBarcodeScannerViewControllerDelegate 
         return self.selectedBarcodes.contains(barcode: code)
     }
     
+    // Delegate method which provides detected barcodes
     func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
                                   didDetectBarcodes codes: [SBSDKBarcodeScannerResult]) {
         

@@ -45,6 +45,7 @@ extension ARFindAndPickViewController: SBSDKBarcodeScannerViewControllerDelegate
         return true
     }
     
+    // Delegate method which asks whether to highlight a specific barcode
     func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
                                   shouldHighlight code: SBSDKBarcodeScannerResult) -> Bool {
         

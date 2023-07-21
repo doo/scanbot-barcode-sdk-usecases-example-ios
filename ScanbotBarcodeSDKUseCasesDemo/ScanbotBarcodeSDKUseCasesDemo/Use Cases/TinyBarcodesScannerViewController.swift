@@ -15,6 +15,8 @@ final class TinyBarcodesScannerViewController: UIViewController {
     @IBOutlet private var barcodeTextLabel: UILabel!
     
     private var scannerViewController: SBSDKBarcodeScannerViewController?
+    
+    private var detectedCode: SBSDKBarcodeScannerResult?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,9 +49,17 @@ extension TinyBarcodesScannerViewController: SBSDKBarcodeScannerViewControllerDe
     func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
                                   didDetectBarcodes codes: [SBSDKBarcodeScannerResult]) {
         
+        // Get the first code
         guard let code = codes.first else { return }
         
-        self.barcodeImageView.image = code.barcodeImage
-        self.barcodeTextLabel.text = code.rawTextStringWithExtension
+        // Ignore the barcode if it has been detected before
+        guard code.rawTextStringWithExtension != self.detectedCode?.rawTextStringWithExtension,
+              code.type != self.detectedCode?.type
+        else { return }
+        
+        self.detectedCode = code
+        
+        self.barcodeImageView.image = detectedCode?.barcodeImage
+        self.barcodeTextLabel.text = detectedCode?.rawTextStringWithExtension
     }
 }

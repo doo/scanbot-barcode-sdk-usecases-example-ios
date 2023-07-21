@@ -42,6 +42,7 @@ extension ARMultiScanViewController: SBSDKBarcodeScannerViewControllerDelegate {
         return true
     }
     
+    // Delegate method which provides detected barcodes
     func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
                                   didDetectBarcodes codes: [SBSDKBarcodeScannerResult]) {
         
