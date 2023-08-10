@@ -21,32 +21,38 @@ final class ARMultiScanViewController: UIViewController {
         super.viewDidLoad()
         
         // Initialize the barcode scanner
-        guard let scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
-                                                                            parentView: self.scannerView,
-                                                                            delegate: self) else { return }
+        scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
+                                                                  parentView: self.scannerView)
         
-        // Enable AR Overlay
-        scannerViewController.selectionOverlayEnabled = true
-        
-        // Enabled automatic selection of the barcodes
-        scannerViewController.automaticSelectionEnabled = true
-        
-        // Configures the scanner to exclude barcode's name and type texts from the AR Overlay
-        scannerViewController.selectionOverlayTextFormat = .none
+        // Enable AR Tracking Overlay and set the delegate
+        scannerViewController?.isTrackingOverlayEnabled = true
+        scannerViewController?.trackingOverlayController.delegate = self
+
+        // Configure AR Tracking Overlay for the scanner
+        let trackingConfiguration = SBSDKBarcodeTrackingOverlayConfiguration()
+        trackingConfiguration.isAutomaticSelectionEnabled = true
+        trackingConfiguration.isSelectable = false
+
+        // Configure tracking overlay text style
+        let trackedViewTextStyle = SBSDKBarcodeTrackedViewTextStyle()
+        trackedViewTextStyle.textDrawingEnabled = false
+
+        // Set the configured text style
+        trackingConfiguration.textStyle = trackedViewTextStyle
+
+        // Set the tracking configuration of the scanner
+        scannerViewController?.trackingOverlayController.configuration = trackingConfiguration
     }
 }
 
-extension ARMultiScanViewController: SBSDKBarcodeScannerViewControllerDelegate {
+extension ARMultiScanViewController: SBSDKBarcodeTrackingOverlayControllerDelegate {
     
-    func barcodeScannerControllerShouldDetectBarcodes(_ controller: SBSDKBarcodeScannerViewController) -> Bool {
-        return true
-    }
-    
-    // Delegate method which provides detected barcodes
-    func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
-                                  didDetectBarcodes codes: [SBSDKBarcodeScannerResult]) {
+    // Delegate method which provides selected barcodes
+    func barcodeTrackingOverlay(_ controller: SBSDKBarcodeTrackingOverlayController,
+                                didChangeSelectedBarcodes selectedBarcodes: [SBSDKBarcodeScannerResult]) {
         
-        self.barcodeResults = codes
+        // Process the selected barcodes
+        self.barcodeResults = selectedBarcodes
         self.resultListTableView.reloadData()
     }
 }

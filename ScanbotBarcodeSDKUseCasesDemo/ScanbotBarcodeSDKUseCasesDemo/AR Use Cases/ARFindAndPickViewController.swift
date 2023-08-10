@@ -18,24 +18,50 @@ final class ARFindAndPickViewController: UIViewController {
         super.viewDidLoad()
         
         // Initialize the barcode scanner
-        guard let scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
-                                                                            parentView: self.scannerView,
-                                                                            delegate: self) else { return }
+        scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
+                                                                            parentView: self.scannerView)
         
-        // Enable AR Overlay
-        scannerViewController.selectionOverlayEnabled = true
+        // Enable AR Tracking Overlay and set the delegate
+        scannerViewController?.isTrackingOverlayEnabled = true
+        scannerViewController?.trackingOverlayController.delegate = self
         
-        // Enabled automatic selection of the barcodes
-        scannerViewController.automaticSelectionEnabled = true
+        // Configure AR Tracking Overlay for the scanner
+        let trackingConfiguration = SBSDKBarcodeTrackingOverlayConfiguration()
+        trackingConfiguration.isAutomaticSelectionEnabled = false
+        trackingConfiguration.isSelectable = false
         
-        // Configures the scanner to exclude barcode's name and type texts from the AR Overlay
-        scannerViewController.selectionOverlayTextFormat = .none
+        // Set the configuration
+        scannerViewController?.trackingOverlayController.configuration = trackingConfiguration
+    }
+}
+
+extension ARFindAndPickViewController: SBSDKBarcodeTrackingOverlayControllerDelegate {
+    func barcodeTrackingOverlay(_ controller: SBSDKBarcodeTrackingOverlayController,
+                                polygonStyleFor barcode: SBSDKBarcodeScannerResult) -> SBSDKBarcodeTrackedViewPolygonStyle? {
         
-        // Set non highlighted color for the AR OVerlay
-        scannerViewController.selectionPolygonColor = .white
+        // To configure polygon style for the received barcode
+        let polygonStyle = SBSDKBarcodeTrackedViewPolygonStyle()
+        polygonStyle.polygonDrawingEnabled = true
         
-        // Set highlighted color for the AR OVerlay
-        scannerViewController.selectionHighlightedPolygonColor = .green
+        // Green color for qr code and white for the rest of the barcode types
+        if barcode.type == SBSDKBarcodeTypeQRCode {
+            polygonStyle.polygonColor = .green
+            polygonStyle.polygonBackgroundColor = .green.withAlphaComponent(0.2)
+        } else {
+            polygonStyle.polygonColor = .white
+            polygonStyle.polygonBackgroundColor = .white.withAlphaComponent(0.2)
+        }
+        
+        return polygonStyle
+    }
+    
+    func barcodeTrackingOverlay(_ controller: SBSDKBarcodeTrackingOverlayController,
+                                textStyleFor barcode: SBSDKBarcodeScannerResult) -> SBSDKBarcodeTrackedViewTextStyle? {
+        // Disable the text for the overlay
+        let textStyle = SBSDKBarcodeTrackedViewTextStyle()
+        textStyle.textDrawingEnabled = false
+        
+        return textStyle
     }
 }
 
