@@ -14,14 +14,16 @@ final class ARScanAndCountViewController: UIViewController {
     @IBOutlet private var currentBarcodesFound: UILabel!
     @IBOutlet private var totalDifferentBarcodes: UILabel!
     
+    // Barcode scan and count view controller
     private var scannerViewController: SBSDKBarcodeScanAndCountViewController?
     
+    // To store counted barcodes
     private var countedBarcodes = [SBSDKBarcodeScannerAccumulatingResult]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Initialize the barcode scanner
+        // Initialize the barcode scanner view controller
         scannerViewController = SBSDKBarcodeScanAndCountViewController(parentViewController: self,
                                                                        parentView: self.scannerView,
                                                                        delegate: self)

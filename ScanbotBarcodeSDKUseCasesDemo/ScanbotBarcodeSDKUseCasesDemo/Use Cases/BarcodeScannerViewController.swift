@@ -15,6 +15,7 @@ final class BarcodeScannerViewController: UIViewController {
     @IBOutlet private var barcodeImageView: UIImageView!
     @IBOutlet private var barcodeTextLabel: UILabel!
     
+    // Barcode scanner view controller
     private var scannerViewController: SBSDKBarcodeScannerViewController?
     
     private var detectedCode: SBSDKBarcodeScannerResult?
@@ -22,10 +23,11 @@ final class BarcodeScannerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Initialize the barcode scanner
-        guard let scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
-                                                                            parentView: self.scannerView,
-                                                                            delegate: self) else { return }
+        // Initialize the barcode scanner view controller
+        self.scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
+                                                                       parentView: self.scannerView,
+                                                                       delegate: self)
+        guard let scannerViewController else { return }
         
         // Retrieve the current applied view finder configurations and modify it
         let viewFinderConfiguration = scannerViewController.viewFinderConfiguration

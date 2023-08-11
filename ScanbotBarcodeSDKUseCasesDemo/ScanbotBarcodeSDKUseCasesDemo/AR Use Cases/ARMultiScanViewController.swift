@@ -13,34 +13,38 @@ final class ARMultiScanViewController: UIViewController {
     @IBOutlet private var scannerView: UIView!
     @IBOutlet private var resultListTableView: UITableView!
     
+    // Barcode scanner view controller
     private var scannerViewController: SBSDKBarcodeScannerViewController?
     
+    // To store detected barcodes
     private var barcodeResults = [SBSDKBarcodeScannerResult]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Initialize the barcode scanner
+        // Initialize the barcode scanner view controller
         scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
                                                                   parentView: self.scannerView)
         
-        // Enable AR Tracking Overlay and set the delegate
+        // Enable AR tracking overlay and set the delegate
         scannerViewController?.isTrackingOverlayEnabled = true
         scannerViewController?.trackingOverlayController.delegate = self
 
-        // Configure AR Tracking Overlay for the scanner
+        // Configure AR tracking overlay for the scanner
         let trackingConfiguration = SBSDKBarcodeTrackingOverlayConfiguration()
         trackingConfiguration.isAutomaticSelectionEnabled = true
         trackingConfiguration.isSelectable = false
 
-        // Configure tracking overlay text style
+        // To configure tracked barcodes info view
         let trackedViewTextStyle = SBSDKBarcodeTrackedViewTextStyle()
+        
+        // To disable the info view
         trackedViewTextStyle.textDrawingEnabled = false
 
-        // Set the configured text style
+        // Set the configured info view style
         trackingConfiguration.textStyle = trackedViewTextStyle
 
-        // Set the tracking configuration of the scanner
+        // Set the tracking configuration
         scannerViewController?.trackingOverlayController.configuration = trackingConfiguration
     }
 }

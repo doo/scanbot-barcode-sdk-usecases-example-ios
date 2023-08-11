@@ -13,55 +13,59 @@ final class ARSelectScanViewController: UIViewController {
     @IBOutlet private var scannerView: UIView!
     @IBOutlet private var resultListTableView: UITableView!
     
+    // Barcode scanner view controller
     private var scannerViewController: SBSDKBarcodeScannerViewController?
     
+    // To store selected barcodes
     private var selectedBarcodes = [SBSDKBarcodeScannerResult]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Initialize the barcode scanner
+        // Initialize the barcode scanner view controller
         scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
                                                                   parentView: self.scannerView)
         
-        // Enable AR Tracking Overlay and set the delegate
+        // Enable AR tracking overlay and set the delegate
         scannerViewController?.isTrackingOverlayEnabled = true
         scannerViewController?.trackingOverlayController.delegate = self
         
-        // Configure AR Tracking Overlay for the scanner
+        // Configure AR tracking overlay for the scanner
         let trackingConfiguration = SBSDKBarcodeTrackingOverlayConfiguration()
         trackingConfiguration.isAutomaticSelectionEnabled = false
         trackingConfiguration.isSelectable = true
         
-        // If you want to override the default styling of the overlays
+        // If you want to override the default styling of the overlay
         // You can set the style properties of the configuration
-        // To set the style of the polygon overlay
+        
+        // To configure tracked barcodes polygon
         let polygonOverlayStyle = SBSDKBarcodeTrackedViewPolygonStyle()
         polygonOverlayStyle.polygonColor = UIColor(red: 255/255, green: 187/255, blue: 51/255, alpha: 1) //🟡
         polygonOverlayStyle.polygonBackgroundColor = UIColor(red: 255/255, green: 187/255, blue: 51/255, alpha: 0.2) //🟡
         polygonOverlayStyle.polygonSelectedColor = UIColor(red: 85/255, green: 187/255, blue: 119/255, alpha: 1) //🟢
         polygonOverlayStyle.polygonBackgroundSelectedColor = UIColor(red: 85/255, green: 187/255, blue: 119/255, alpha: 0.2) //🟢
         
-        // Set the configured polygon overlay style
+        // Set the configured polygon style
         trackingConfiguration.polygonStyle = polygonOverlayStyle
         
-        // To set the style of the text overlay
+        // To configure tracked barcodes info view
         let textOverlayStyle = SBSDKBarcodeTrackedViewTextStyle()
         textOverlayStyle.textColor = .black
         textOverlayStyle.textBackgroundColor = UIColor(red: 255/255, green: 187/255, blue: 51/255, alpha: 1) //🟡
         textOverlayStyle.selectedTextColor = .black
         textOverlayStyle.textBackgroundSelectedColor = UIColor(red: 85/255, green: 187/255, blue: 119/255, alpha: 1) //🟢
         
-        // Set the configured text overlay style
+        // Set the configured info view style
         trackingConfiguration.textStyle = textOverlayStyle
         
-        // Set the configuration
+        // Set the tracking configuration
         scannerViewController?.trackingOverlayController.configuration = trackingConfiguration
     }
 }
 
 extension ARSelectScanViewController: SBSDKBarcodeTrackingOverlayControllerDelegate {
     
+    // Delegate method which provides selected barcodes
     func barcodeTrackingOverlay(_ controller: SBSDKBarcodeTrackingOverlayController,
                                 didChangeSelectedBarcodes selectedBarcodes: [SBSDKBarcodeScannerResult]) {
             
