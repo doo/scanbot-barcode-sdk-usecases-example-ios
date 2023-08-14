@@ -57,7 +57,7 @@ extension TinyBarcodesScannerViewController: SBSDKBarcodeScannerViewControllerDe
         guard let code = codes.first else { return }
         
         // Ignore the barcode if it has been detected before
-        guard code.rawTextStringWithExtension != self.detectedCode?.rawTextStringWithExtension,
+        guard code.rawTextStringWithExtension != self.detectedCode?.rawTextStringWithExtension ||
               code.type != self.detectedCode?.type
         else { return }
         
