@@ -13,7 +13,7 @@
 		F165662D2A851FBC00BF7142 /* ARCustomOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F165662C2A851FBC00BF7142 /* ARCustomOverlayView.swift */; };
 		F18AE9452A5EC2AD006E7DE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18AE9442A5EC2AD006E7DE5 /* AppDelegate.swift */; };
 		F18AE9472A5EC2AD006E7DE5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18AE9462A5EC2AD006E7DE5 /* SceneDelegate.swift */; };
-		F18AE9492A5EC2AD006E7DE5 /* BarcodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18AE9482A5EC2AD006E7DE5 /* BarcodeScannerViewController.swift */; };
+		F18AE9492A5EC2AD006E7DE5 /* SingleBarcodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18AE9482A5EC2AD006E7DE5 /* SingleBarcodeScannerViewController.swift */; };
 		F18AE94C2A5EC2AD006E7DE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F18AE94A2A5EC2AD006E7DE5 /* Main.storyboard */; };
 		F18AE94E2A5EC2AE006E7DE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F18AE94D2A5EC2AE006E7DE5 /* Assets.xcassets */; };
 		F18AE9512A5EC2AE006E7DE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F18AE94F2A5EC2AE006E7DE5 /* LaunchScreen.storyboard */; };
@@ -42,7 +42,7 @@
 		F18AE9412A5EC2AD006E7DE5 /* ScanbotBarcodeSDKUseCasesDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanbotBarcodeSDKUseCasesDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F18AE9442A5EC2AD006E7DE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F18AE9462A5EC2AD006E7DE5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F18AE9482A5EC2AD006E7DE5 /* BarcodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerViewController.swift; sourceTree = "<group>"; };
+		F18AE9482A5EC2AD006E7DE5 /* SingleBarcodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleBarcodeScannerViewController.swift; sourceTree = "<group>"; };
 		F18AE94B2A5EC2AD006E7DE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F18AE94D2A5EC2AE006E7DE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F18AE9502A5EC2AE006E7DE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -155,7 +155,7 @@
 		F1ECF5082A5F0F0600285A5F /* Use Cases */ = {
 			isa = PBXGroup;
 			children = (
-				F18AE9482A5EC2AD006E7DE5 /* BarcodeScannerViewController.swift */,
+				F18AE9482A5EC2AD006E7DE5 /* SingleBarcodeScannerViewController.swift */,
 				F1ECF50D2A5FF89800285A5F /* MultipleBarcodesScannerViewController.swift */,
 				F1ECF50F2A5FF95D00285A5F /* BatchBarcodeScannerViewController.swift */,
 				F1ECF5112A5FFA1400285A5F /* TinyBarcodesScannerViewController.swift */,
@@ -277,7 +277,7 @@
 				F1ECF5142A5FFA7400285A5F /* DistantBarcodesScannerViewController.swift in Sources */,
 				F1ECF5162A5FFD4F00285A5F /* DetectBarcodesOnStillImagesViewController.swift in Sources */,
 				F1A83C542A6187FF00CDE7C8 /* Array+Extension.swift in Sources */,
-				F18AE9492A5EC2AD006E7DE5 /* BarcodeScannerViewController.swift in Sources */,
+				F18AE9492A5EC2AD006E7DE5 /* SingleBarcodeScannerViewController.swift in Sources */,
 				F19577C22A6A7EC80029B4B8 /* UIButton+Extension.swift in Sources */,
 				F1ECF51B2A60007500285A5F /* ARSelectScanViewController.swift in Sources */,
 				F1ECF50C2A5F199400285A5F /* UseCasesListTableViewController.swift in Sources */,
@@ -521,7 +521,7 @@
 			repositoryURL = "git@github.com:doo/scanbot-barcode-scanner-sdk-ios-spm.git";
 			requirement = {
 				kind = exactVersion;
-				version = "4.0.0-Beta2";
+				version = "4.0.0-Beta3";
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

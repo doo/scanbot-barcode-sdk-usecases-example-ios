@@ -1,5 +1,5 @@
 //
-//  BarcodeScannerViewController.swift
+//  SingleBarcodeScannerViewController.swift
 //  Scanbot Barcode SDK
 //
 //  Created by Rana Sohaib on 12.07.23.
@@ -8,7 +8,7 @@
 import UIKit
 import ScanbotBarcodeScannerSDK
 
-final class BarcodeScannerViewController: UIViewController {
+final class SingleBarcodeScannerViewController: UIViewController {
     
     @IBOutlet private var scannerView: UIView!
     
@@ -39,7 +39,7 @@ final class BarcodeScannerViewController: UIViewController {
     }
 }
 
-extension BarcodeScannerViewController: SBSDKBarcodeScannerViewControllerDelegate {
+extension SingleBarcodeScannerViewController: SBSDKBarcodeScannerViewControllerDelegate {
     
     func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
                                   didDetectBarcodes codes: [SBSDKBarcodeScannerResult]) {
@@ -47,8 +47,8 @@ extension BarcodeScannerViewController: SBSDKBarcodeScannerViewControllerDelegat
         // Get the first code
         guard let code = codes.first else { return }
         
-        // Ignore the barcode if it has been detected before
-        guard code.rawTextStringWithExtension != self.detectedCode?.rawTextStringWithExtension,
+        // Ignore the barcode if it is same as the last one
+        guard code.rawTextStringWithExtension != self.detectedCode?.rawTextStringWithExtension ||
               code.type != self.detectedCode?.type
         else { return }
         

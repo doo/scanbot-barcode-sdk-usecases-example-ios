@@ -38,5 +38,3 @@ class ARBarcodeVisionViewController: UIViewController {
         scannerViewController?.trackingOverlayController.configuration = trackingConfiguration
     }
 }
-
-

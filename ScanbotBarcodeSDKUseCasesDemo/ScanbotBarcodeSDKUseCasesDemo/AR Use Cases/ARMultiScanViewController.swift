@@ -24,11 +24,11 @@ final class ARMultiScanViewController: UIViewController {
         
         // Initialize the barcode scanner view controller
         scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
-                                                                  parentView: self.scannerView)
+                                                                  parentView: self.scannerView,
+                                                                  delegate: self)
         
-        // Enable AR tracking overlay and set the delegate
+        // Enable AR tracking overlay
         scannerViewController?.isTrackingOverlayEnabled = true
-        scannerViewController?.trackingOverlayController.delegate = self
 
         // Configure AR tracking overlay for the scanner
         let trackingConfiguration = SBSDKBarcodeTrackingOverlayConfiguration()
@@ -49,14 +49,21 @@ final class ARMultiScanViewController: UIViewController {
     }
 }
 
-extension ARMultiScanViewController: SBSDKBarcodeTrackingOverlayControllerDelegate {
+extension ARMultiScanViewController: SBSDKBarcodeScannerViewControllerDelegate {
     
-    // Delegate method which provides selected barcodes
-    func barcodeTrackingOverlay(_ controller: SBSDKBarcodeTrackingOverlayController,
-                                didChangeSelectedBarcodes selectedBarcodes: [SBSDKBarcodeScannerResult]) {
+    func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
+                                  didDetectBarcodes codes: [SBSDKBarcodeScannerResult]) {
         
-        // Process the selected barcodes
-        self.barcodeResults = selectedBarcodes
+        // Ignore barcodes that have already been detected
+        codes.forEach { detectedBarcode in
+            
+            // Check detected barcode's name, extension, and type with previously detected barcodes
+            // Ignore barcode if it has already been detected
+            if !self.barcodeResults.contains(barcode: detectedBarcode) {
+                self.barcodeResults.append(detectedBarcode)
+            }
+        }
+        
         self.resultListTableView.reloadData()
     }
 }
