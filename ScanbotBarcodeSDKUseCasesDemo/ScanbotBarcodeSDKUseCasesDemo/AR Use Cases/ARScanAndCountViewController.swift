@@ -33,7 +33,7 @@ final class ARScanAndCountViewController: UIViewController {
 extension ARScanAndCountViewController: SBSDKBarcodeScanAndCountViewControllerDelegate {
     
     // Delegate method which asks for a view of type UIView
-    // Which then will be used as an overlay for the specific barcode
+    // Which then will be used as an overlay for the specific barcode 
     func barcodeScanAndCount(_ controller: SBSDKBarcodeScanAndCountViewController,
                              overlayForBarcode code: SBSDKBarcodeScannerResult) -> UIView? {
         

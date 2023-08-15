@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Please submit the trial license form (https://scanbot.io/en/sdk/demo/trial) on our website by using
         // the Bundle Identifier "io.scanbot.example.barcodesdk.usecases.ios" of this example app.
 
-        //ScanbotSDK.setLicense("YOUR_LICENSE_KEY")
+        //Scanbot.setLicense("YOUR_LICENSE_KEY")
         
         return true
     }
