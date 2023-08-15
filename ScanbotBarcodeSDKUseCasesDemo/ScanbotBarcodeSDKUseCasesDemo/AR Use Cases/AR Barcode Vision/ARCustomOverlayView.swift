@@ -51,7 +51,8 @@ extension ARCustomOverlayView: SBSDKTrackedBarcodeInfoViewable {
         polygonStyle.polygonDrawingEnabled = false
         
         // Update the frames
-        self.frame = barcodeFrame.insetBy(dx: -20.0, dy: -20.0)
+        self.frame.size = CGSize(width: 180, height: 180)
+        self.center = CGPoint(x: barcodeFrame.midX, y: barcodeFrame.midY)
         
         // Only show the custom view if barcode frame is bigger than a certain size
         if barcodeFrame.size.width * barcodeFrame.size.height > 100 * 100 {
