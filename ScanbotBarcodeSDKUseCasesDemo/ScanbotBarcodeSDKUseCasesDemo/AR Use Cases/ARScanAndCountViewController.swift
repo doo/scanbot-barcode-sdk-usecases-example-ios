@@ -28,8 +28,8 @@ final class ARScanAndCountViewController: UIViewController {
                                                                        parentView: self.scannerView,
                                                                        delegate: self)
         
-        // Get current polygon style.
-        let polygonStyle = self.scannerViewController.polygonStyle
+        // To configure polygon style.
+        let polygonStyle = SBSDKScanAndCountPolygonStyle()
         
         // Enable the barcode polygon overlay.
         polygonStyle.polygonDrawingEnabled = true
