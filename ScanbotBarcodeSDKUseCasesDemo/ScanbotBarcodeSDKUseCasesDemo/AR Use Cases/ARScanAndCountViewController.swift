@@ -15,7 +15,7 @@ final class ARScanAndCountViewController: UIViewController {
     @IBOutlet private var totalDifferentBarcodes: UILabel!
     
     // Barcode scan and count view controller
-    private var scannerViewController: SBSDKBarcodeScanAndCountViewController?
+    private var scannerViewController: SBSDKBarcodeScanAndCountViewController!
     
     // To store counted barcodes
     private var countedBarcodes = [SBSDKBarcodeScannerAccumulatingResult]()
@@ -27,6 +27,30 @@ final class ARScanAndCountViewController: UIViewController {
         scannerViewController = SBSDKBarcodeScanAndCountViewController(parentViewController: self,
                                                                        parentView: self.scannerView,
                                                                        delegate: self)
+        
+        // Get current polygon style.
+        let polygonStyle = self.scannerViewController.polygonStyle
+        
+        // Enable the barcode polygon overlay.
+        polygonStyle.polygonDrawingEnabled = true
+        
+        // Set the color for the polygons.
+        polygonStyle.polygonColor = UIColor(red: 0, green: 0.81, blue: 0.65, alpha: 0.8)
+        
+        // Set the color for the polygon's fill color.
+        polygonStyle.polygonFillColor = UIColor(red: 0, green: 0.81, blue: 0.65, alpha: 0.2)
+        
+        // Set the line width for the polygons.
+        polygonStyle.lineWidth = 2
+        
+        // Set the corner radius for the polygons.
+        polygonStyle.cornerRadius = 8
+        
+        // Set the polygon style to apply it.
+        self.scannerViewController.polygonStyle = polygonStyle
+        
+        // Set the capture mode of the scanner.
+        self.scannerViewController.captureMode = .capturedImage
     }
 }
 

@@ -15,7 +15,7 @@ final class DistantBarcodesScannerViewController: UIViewController {
     @IBOutlet private var barcodeTextLabel: UILabel!
     
     // Barcode scanner view controller
-    private var scannerViewController: SBSDKBarcodeScannerViewController?
+    private var scannerViewController: SBSDKBarcodeScannerViewController!
     
     // To store detected barcode
     private var detectedCode: SBSDKBarcodeScannerResult?
@@ -27,8 +27,6 @@ final class DistantBarcodesScannerViewController: UIViewController {
         self.scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
                                                                        parentView: self.scannerView,
                                                                        delegate: self)
-        
-        guard let scannerViewController else { return }
         
         // Retrieve the current applied zoom configurations and modify it
         let zoomConfiguration = scannerViewController.zoomConfiguration

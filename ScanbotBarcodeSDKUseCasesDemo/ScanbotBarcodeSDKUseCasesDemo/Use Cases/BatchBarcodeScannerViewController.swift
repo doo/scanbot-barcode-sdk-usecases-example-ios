@@ -14,7 +14,7 @@ final class BatchBarcodeScannerViewController: UIViewController {
     @IBOutlet private var resultListTableView: UITableView!
     
     // Initialize the barcode scanner view controller
-    private var scannerViewController: SBSDKBarcodeScannerViewController?
+    private var scannerViewController: SBSDKBarcodeScannerViewController!
     
     // To store detected barcodes
     private var barcodeResults = [SBSDKBarcodeScannerResult]()
@@ -26,8 +26,6 @@ final class BatchBarcodeScannerViewController: UIViewController {
         self.scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
                                                                        parentView: self.scannerView,
                                                                        delegate: self)
-        
-        guard let scannerViewController else { return }
         
         // Retrieve the current applied view finder configurations and modify it
         let viewFinderConfiguration = scannerViewController.viewFinderConfiguration

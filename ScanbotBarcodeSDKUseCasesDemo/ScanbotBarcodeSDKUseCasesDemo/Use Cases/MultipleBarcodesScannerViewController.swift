@@ -14,7 +14,7 @@ final class MultipleBarcodesScannerViewController: UIViewController {
     @IBOutlet private var resultListTableView: UITableView!
     
     // Barcode scanner view controller
-    private var scannerViewController: SBSDKBarcodeScannerViewController?
+    private var scannerViewController: SBSDKBarcodeScannerViewController!
     
     // To store detected barcodes
     private var barcodeResults = [SBSDKBarcodeScannerResult]()

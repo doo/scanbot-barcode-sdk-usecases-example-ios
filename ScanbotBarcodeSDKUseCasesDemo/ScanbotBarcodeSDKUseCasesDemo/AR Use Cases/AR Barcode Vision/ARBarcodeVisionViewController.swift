@@ -13,7 +13,7 @@ class ARBarcodeVisionViewController: UIViewController {
     @IBOutlet private var scannerView: UIView!
     
     // Barcode scanner view controller
-    private var scannerViewController: SBSDKBarcodeScannerViewController?
+    private var scannerViewController: SBSDKBarcodeScannerViewController!
     
     override func viewDidLoad() {
         
@@ -22,7 +22,7 @@ class ARBarcodeVisionViewController: UIViewController {
                                                                   parentView: self.scannerView)
         
         // Enable tracking overlay
-        scannerViewController?.isTrackingOverlayEnabled = true
+        scannerViewController.isTrackingOverlayEnabled = true
         
         // Load your custom view
         let view = UINib(nibName: "ARCustomOverlayView",
@@ -35,6 +35,6 @@ class ARBarcodeVisionViewController: UIViewController {
         trackingConfiguration.customView = view
         
         // Set the configuration
-        scannerViewController?.trackingOverlayController.configuration = trackingConfiguration
+        scannerViewController.trackingOverlayController.configuration = trackingConfiguration
     }
 }

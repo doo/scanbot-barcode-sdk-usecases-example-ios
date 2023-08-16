@@ -16,7 +16,7 @@ final class SingleBarcodeScannerViewController: UIViewController {
     @IBOutlet private var barcodeTextLabel: UILabel!
     
     // Barcode scanner view controller
-    private var scannerViewController: SBSDKBarcodeScannerViewController?
+    private var scannerViewController: SBSDKBarcodeScannerViewController!
     
     private var detectedCode: SBSDKBarcodeScannerResult?
 
@@ -27,7 +27,6 @@ final class SingleBarcodeScannerViewController: UIViewController {
         self.scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
                                                                        parentView: self.scannerView,
                                                                        delegate: self)
-        guard let scannerViewController else { return }
         
         // Retrieve the current applied view finder configurations and modify it
         let viewFinderConfiguration = scannerViewController.viewFinderConfiguration

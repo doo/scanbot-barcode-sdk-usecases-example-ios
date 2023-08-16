@@ -13,7 +13,7 @@ final class ARFindAndPickViewController: UIViewController {
     @IBOutlet private var scannerView: UIView!
     
     // Barcode scanner view controller
-    private var scannerViewController: SBSDKBarcodeScannerViewController?
+    private var scannerViewController: SBSDKBarcodeScannerViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +23,8 @@ final class ARFindAndPickViewController: UIViewController {
                                                                             parentView: self.scannerView)
         
         // Enable AR tracking overlay and set the delegate
-        scannerViewController?.isTrackingOverlayEnabled = true
-        scannerViewController?.trackingOverlayController.delegate = self
+        scannerViewController.isTrackingOverlayEnabled = true
+        scannerViewController.trackingOverlayController.delegate = self
         
         // Configure AR tracking overlay for the scanner
         let trackingConfiguration = SBSDKBarcodeTrackingOverlayConfiguration()
@@ -32,7 +32,7 @@ final class ARFindAndPickViewController: UIViewController {
         trackingConfiguration.isSelectable = false
         
         // Set the tracking configuration
-        scannerViewController?.trackingOverlayController.configuration = trackingConfiguration
+        scannerViewController.trackingOverlayController.configuration = trackingConfiguration
     }
 }
 
