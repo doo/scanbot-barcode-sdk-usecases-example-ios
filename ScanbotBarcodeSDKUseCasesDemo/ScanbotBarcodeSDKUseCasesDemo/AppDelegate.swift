@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        ScanbotSDK.setupDefaultLicenseFailureHandler()
+        Scanbot.setupDefaultLicenseFailureHandler()
         
         // TODO Add your Scanbot SDK license here.
         // Please note: The Scanbot SDK will run without a license key for one minute per session!
@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Please submit the trial license form (https://scanbot.io/en/sdk/demo/trial) on our website by using
         // the Bundle Identifier "io.scanbot.example.barcodesdk.usecases.ios" of this example app.
 
-        //ScanbotSDK.setLicense("YOUR_LICENSE_KEY")
+        //Scanbot.setLicense("YOUR_LICENSE_KEY")
         
         return true
     }

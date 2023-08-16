@@ -14,24 +14,50 @@ final class ARScanAndCountViewController: UIViewController {
     @IBOutlet private var currentBarcodesFound: UILabel!
     @IBOutlet private var totalDifferentBarcodes: UILabel!
     
-    private var scannerViewController: SBSDKBarcodeScanAndCountViewController?
+    // Barcode scan and count view controller
+    private var scannerViewController: SBSDKBarcodeScanAndCountViewController!
     
+    // To store counted barcodes
     private var countedBarcodes = [SBSDKBarcodeScannerAccumulatingResult]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Initialize the barcode scanner
+        // Initialize the barcode scanner view controller
         scannerViewController = SBSDKBarcodeScanAndCountViewController(parentViewController: self,
                                                                        parentView: self.scannerView,
                                                                        delegate: self)
+        
+        // To configure polygon style.
+        let polygonStyle = SBSDKScanAndCountPolygonStyle()
+        
+        // Enable the barcode polygon overlay.
+        polygonStyle.polygonDrawingEnabled = true
+        
+        // Set the color for the polygons.
+        polygonStyle.polygonColor = UIColor(red: 0, green: 0.81, blue: 0.65, alpha: 0.8)
+        
+        // Set the color for the polygon's fill color.
+        polygonStyle.polygonFillColor = UIColor(red: 0, green: 0.81, blue: 0.65, alpha: 0.2)
+        
+        // Set the line width for the polygons.
+        polygonStyle.lineWidth = 2
+        
+        // Set the corner radius for the polygons.
+        polygonStyle.cornerRadius = 8
+        
+        // Set the polygon style to apply it.
+        self.scannerViewController.polygonStyle = polygonStyle
+        
+        // Set the capture mode of the scanner.
+        self.scannerViewController.captureMode = .capturedImage
     }
 }
 
 extension ARScanAndCountViewController: SBSDKBarcodeScanAndCountViewControllerDelegate {
     
     // Delegate method which asks for a view of type UIView
-    // Which then will be used as an overlay for the specific barcode
+    // Which then will be used as an overlay for the specific barcode 
     func barcodeScanAndCount(_ controller: SBSDKBarcodeScanAndCountViewController,
                              overlayForBarcode code: SBSDKBarcodeScannerResult) -> UIView? {
         

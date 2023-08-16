@@ -8,9 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		F1379DD92A6A892D00518DA1 /* BannerUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1379DD82A6A892D00518DA1 /* BannerUITableViewCell.swift */; };
+		F165651B2A85038400BF7142 /* ARBarcodeVisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F165651A2A85038400BF7142 /* ARBarcodeVisionViewController.swift */; };
+		F165662B2A851C2C00BF7142 /* ARCustomOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F165662A2A851C2C00BF7142 /* ARCustomOverlayView.xib */; };
+		F165662D2A851FBC00BF7142 /* ARCustomOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F165662C2A851FBC00BF7142 /* ARCustomOverlayView.swift */; };
 		F18AE9452A5EC2AD006E7DE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18AE9442A5EC2AD006E7DE5 /* AppDelegate.swift */; };
 		F18AE9472A5EC2AD006E7DE5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18AE9462A5EC2AD006E7DE5 /* SceneDelegate.swift */; };
-		F18AE9492A5EC2AD006E7DE5 /* BarcodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18AE9482A5EC2AD006E7DE5 /* BarcodeScannerViewController.swift */; };
+		F18AE9492A5EC2AD006E7DE5 /* SingleBarcodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18AE9482A5EC2AD006E7DE5 /* SingleBarcodeScannerViewController.swift */; };
 		F18AE94C2A5EC2AD006E7DE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F18AE94A2A5EC2AD006E7DE5 /* Main.storyboard */; };
 		F18AE94E2A5EC2AE006E7DE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F18AE94D2A5EC2AE006E7DE5 /* Assets.xcassets */; };
 		F18AE9512A5EC2AE006E7DE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F18AE94F2A5EC2AE006E7DE5 /* LaunchScreen.storyboard */; };
@@ -33,10 +36,13 @@
 
 /* Begin PBXFileReference section */
 		F1379DD82A6A892D00518DA1 /* BannerUITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerUITableViewCell.swift; sourceTree = "<group>"; };
+		F165651A2A85038400BF7142 /* ARBarcodeVisionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARBarcodeVisionViewController.swift; sourceTree = "<group>"; };
+		F165662A2A851C2C00BF7142 /* ARCustomOverlayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ARCustomOverlayView.xib; sourceTree = "<group>"; };
+		F165662C2A851FBC00BF7142 /* ARCustomOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCustomOverlayView.swift; sourceTree = "<group>"; };
 		F18AE9412A5EC2AD006E7DE5 /* ScanbotBarcodeSDKUseCasesDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanbotBarcodeSDKUseCasesDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F18AE9442A5EC2AD006E7DE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F18AE9462A5EC2AD006E7DE5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F18AE9482A5EC2AD006E7DE5 /* BarcodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerViewController.swift; sourceTree = "<group>"; };
+		F18AE9482A5EC2AD006E7DE5 /* SingleBarcodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleBarcodeScannerViewController.swift; sourceTree = "<group>"; };
 		F18AE94B2A5EC2AD006E7DE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F18AE94D2A5EC2AE006E7DE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F18AE9502A5EC2AE006E7DE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -95,6 +101,16 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		F16565192A85033E00BF7142 /* AR Barcode Vision */ = {
+			isa = PBXGroup;
+			children = (
+				F165651A2A85038400BF7142 /* ARBarcodeVisionViewController.swift */,
+				F165662A2A851C2C00BF7142 /* ARCustomOverlayView.xib */,
+				F165662C2A851FBC00BF7142 /* ARCustomOverlayView.swift */,
+			);
+			path = "AR Barcode Vision";
+			sourceTree = "<group>";
+		};
 		F18AE9382A5EC2AD006E7DE5 = {
 			isa = PBXGroup;
 			children = (
@@ -139,7 +155,7 @@
 		F1ECF5082A5F0F0600285A5F /* Use Cases */ = {
 			isa = PBXGroup;
 			children = (
-				F18AE9482A5EC2AD006E7DE5 /* BarcodeScannerViewController.swift */,
+				F18AE9482A5EC2AD006E7DE5 /* SingleBarcodeScannerViewController.swift */,
 				F1ECF50D2A5FF89800285A5F /* MultipleBarcodesScannerViewController.swift */,
 				F1ECF50F2A5FF95D00285A5F /* BatchBarcodeScannerViewController.swift */,
 				F1ECF5112A5FFA1400285A5F /* TinyBarcodesScannerViewController.swift */,
@@ -156,6 +172,7 @@
 				F1ECF51A2A60007500285A5F /* ARSelectScanViewController.swift */,
 				F1ECF51C2A60028000285A5F /* ARFindAndPickViewController.swift */,
 				F1ECF51E2A60032F00285A5F /* ARScanAndCountViewController.swift */,
+				F16565192A85033E00BF7142 /* AR Barcode Vision */,
 			);
 			path = "AR Use Cases";
 			sourceTree = "<group>";
@@ -245,6 +262,7 @@
 				F18AE9512A5EC2AE006E7DE5 /* LaunchScreen.storyboard in Resources */,
 				F18AE94E2A5EC2AE006E7DE5 /* Assets.xcassets in Resources */,
 				F18AE94C2A5EC2AD006E7DE5 /* Main.storyboard in Resources */,
+				F165662B2A851C2C00BF7142 /* ARCustomOverlayView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,16 +277,18 @@
 				F1ECF5142A5FFA7400285A5F /* DistantBarcodesScannerViewController.swift in Sources */,
 				F1ECF5162A5FFD4F00285A5F /* DetectBarcodesOnStillImagesViewController.swift in Sources */,
 				F1A83C542A6187FF00CDE7C8 /* Array+Extension.swift in Sources */,
-				F18AE9492A5EC2AD006E7DE5 /* BarcodeScannerViewController.swift in Sources */,
+				F18AE9492A5EC2AD006E7DE5 /* SingleBarcodeScannerViewController.swift in Sources */,
 				F19577C22A6A7EC80029B4B8 /* UIButton+Extension.swift in Sources */,
 				F1ECF51B2A60007500285A5F /* ARSelectScanViewController.swift in Sources */,
 				F1ECF50C2A5F199400285A5F /* UseCasesListTableViewController.swift in Sources */,
 				F1ECF50E2A5FF89800285A5F /* MultipleBarcodesScannerViewController.swift in Sources */,
 				F1379DD92A6A892D00518DA1 /* BannerUITableViewCell.swift in Sources */,
 				F1ECF5102A5FF95D00285A5F /* BatchBarcodeScannerViewController.swift in Sources */,
+				F165662D2A851FBC00BF7142 /* ARCustomOverlayView.swift in Sources */,
 				F1ECF5122A5FFA1400285A5F /* TinyBarcodesScannerViewController.swift in Sources */,
 				F19577C02A6A74EF0029B4B8 /* RootNavigationController.swift in Sources */,
 				F1ECF5282A60229800285A5F /* BarcodeResultTableViewCell.swift in Sources */,
+				F165651B2A85038400BF7142 /* ARBarcodeVisionViewController.swift in Sources */,
 				F1ECF51F2A60032F00285A5F /* ARScanAndCountViewController.swift in Sources */,
 				F18AE9452A5EC2AD006E7DE5 /* AppDelegate.swift in Sources */,
 				F18AE9472A5EC2AD006E7DE5 /* SceneDelegate.swift in Sources */,
@@ -501,7 +521,7 @@
 			repositoryURL = "git@github.com:doo/scanbot-barcode-scanner-sdk-ios-spm.git";
 			requirement = {
 				kind = exactVersion;
-				version = 3.7.0;
+				version = "4.0.0-RC1";
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

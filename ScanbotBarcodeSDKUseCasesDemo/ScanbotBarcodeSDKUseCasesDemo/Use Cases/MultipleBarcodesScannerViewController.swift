@@ -13,7 +13,8 @@ final class MultipleBarcodesScannerViewController: UIViewController {
     @IBOutlet private var scannerView: UIView!
     @IBOutlet private var resultListTableView: UITableView!
     
-    private var scannerViewController: SBSDKBarcodeScannerViewController?
+    // Barcode scanner view controller
+    private var scannerViewController: SBSDKBarcodeScannerViewController!
     
     // To store detected barcodes
     private var barcodeResults = [SBSDKBarcodeScannerResult]()
@@ -21,7 +22,7 @@ final class MultipleBarcodesScannerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Initialize the barcode scanner
+        // Initialize the barcode scanner view controller
         scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
                                                                   parentView: self.scannerView,
                                                                   delegate: self)
@@ -37,7 +38,7 @@ extension MultipleBarcodesScannerViewController: SBSDKBarcodeScannerViewControll
         codes.forEach { detectedBarcode in
             
             // Check detected barcode's name, extension, and type with previously detected barcodes
-            // Ignore barcode If it has already been detected
+            // Ignore barcode if it has already been detected
             if !self.barcodeResults.contains(barcode: detectedBarcode) {
                 self.barcodeResults.append(detectedBarcode)
             }
