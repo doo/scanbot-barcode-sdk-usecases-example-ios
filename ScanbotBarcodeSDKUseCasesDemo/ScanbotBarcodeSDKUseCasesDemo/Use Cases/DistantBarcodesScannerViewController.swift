@@ -14,17 +14,19 @@ final class DistantBarcodesScannerViewController: UIViewController {
     @IBOutlet private var barcodeImageView: UIImageView!
     @IBOutlet private var barcodeTextLabel: UILabel!
     
-    private var scannerViewController: SBSDKBarcodeScannerViewController?
+    // Barcode scanner view controller
+    private var scannerViewController: SBSDKBarcodeScannerViewController!
     
+    // To store detected barcode
     private var detectedCode: SBSDKBarcodeScannerResult?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Initialize the barcode scanner
-        guard let scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
-                                                                            parentView: self.scannerView,
-                                                                            delegate: self) else { return }
+        // Initialize the barcode scanner view controller
+        self.scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
+                                                                       parentView: self.scannerView,
+                                                                       delegate: self)
         
         // Retrieve the current applied zoom configurations and modify it
         let zoomConfiguration = scannerViewController.zoomConfiguration
@@ -52,7 +54,7 @@ extension DistantBarcodesScannerViewController: SBSDKBarcodeScannerViewControlle
         guard let code = codes.first else { return }
         
         // Ignore the barcode if it has been detected before
-        guard code.rawTextStringWithExtension != self.detectedCode?.rawTextStringWithExtension,
+        guard code.rawTextStringWithExtension != self.detectedCode?.rawTextStringWithExtension ||
               code.type != self.detectedCode?.type
         else { return }
         

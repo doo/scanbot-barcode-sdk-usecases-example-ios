@@ -13,8 +13,10 @@ final class DetectBarcodesOnStillImagesViewController: UIViewController {
     
     @IBOutlet private var tableView: UITableView!
     
+    // Barcode scanner
     private var barcodeScanner: SBSDKBarcodeScanner?
     
+    // To store detected barcodes
     private var barcodeScannerResults = [SBSDKBarcodeScannerResult]()
     
     override func viewDidLoad() {
