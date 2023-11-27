@@ -226,7 +226,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					F18AE9402A5EC2AD006E7DE5 = {
 						CreatedOnToolsVersion = 14.3;
@@ -521,7 +521,7 @@
 			repositoryURL = "git@github.com:doo/scanbot-barcode-scanner-sdk-ios-spm.git";
 			requirement = {
 				kind = exactVersion;
-				version = 4.0.0;
+				version = 4.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
