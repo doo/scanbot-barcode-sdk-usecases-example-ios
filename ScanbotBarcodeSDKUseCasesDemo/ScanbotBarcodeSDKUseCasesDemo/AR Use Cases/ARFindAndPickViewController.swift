@@ -47,7 +47,7 @@ extension ARFindAndPickViewController: SBSDKBarcodeTrackingOverlayControllerDele
         polygonStyle.polygonDrawingEnabled = true
         
         // Green color for QR code and white for the rest of the barcode types
-        if barcode.type == SBSDKBarcodeTypeQRCode {
+        if barcode.type == SBSDKBarcodeType.qrCode {
             polygonStyle.polygonColor = .green
             polygonStyle.polygonBackgroundColor = .green.withAlphaComponent(0.2)
         } else {

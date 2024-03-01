@@ -35,7 +35,7 @@ final class DistantBarcodesScannerViewController: UIViewController {
         // Retrieve the current applied view finder configurations and modify it
         let viewFinderConfiguration = scannerViewController.viewFinderConfiguration
         viewFinderConfiguration.isViewFinderEnabled = true
-        viewFinderConfiguration.aspectRatio = SBSDKAspectRatio(width: 1, andHeight: 1)
+        viewFinderConfiguration.aspectRatio = SBSDKAspectRatio(width: 1, height: 1)
         
         // Apply the modified zoom configurations onto the scanner
         scannerViewController.zoomConfiguration = zoomConfiguration

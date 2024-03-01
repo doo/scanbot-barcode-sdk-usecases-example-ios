@@ -23,7 +23,7 @@ final class DetectBarcodesOnStillImagesViewController: UIViewController {
         super.viewDidLoad()
         
         // Initialise the barcode scanner with all barcode types
-        barcodeScanner = SBSDKBarcodeScanner(types: SBSDKBarcodeType.allTypes())
+        barcodeScanner = SBSDKBarcodeScanner(types: SBSDKBarcodeType.allTypes)
     }
     
     func detectBarcode(OnImage image: UIImage) {
