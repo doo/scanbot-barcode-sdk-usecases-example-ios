@@ -15,7 +15,7 @@ class ARCustomOverlayView: UIView {
     @IBOutlet private var detailLabel: UILabel!
     
     // To store detected barcode
-    var barcode: SBSDKBarcodeScannerResult!
+    var barcode: SBSDKBarcodeItem!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,8 +31,7 @@ class ARCustomOverlayView: UIView {
 extension ARCustomOverlayView: SBSDKTrackedBarcodeInfoViewable {
     
     // Delegate method to provide the instance of the custom view
-    static func make(withBarcode: SBSDKBarcodeScannerResult) -> SBSDKTrackedBarcodeInfoView {
-        
+    static func make(withBarcode: SBSDKBarcodeItem) -> any SBSDKTrackedBarcodeInfoView {
         // Create custom view instance and return it
         let view = UINib(nibName: "ARCustomOverlayView", bundle: nil)
             .instantiate(withOwner: nil).first as! ARCustomOverlayView
@@ -58,18 +57,18 @@ extension ARCustomOverlayView: SBSDKTrackedBarcodeInfoViewable {
         if barcodeFrame.size.width * barcodeFrame.size.height > 100 * 100 {
             
             detailContainerView.isHidden = false
-            detailLabel.text = barcode.rawTextStringWithExtension
+            detailLabel.text = barcode.textWithExtension
             
-            if barcode.rawTextString.last == "2" {
+            if barcode.text.last == "2" {
                 detailImageView.image = UIImage(imageLiteralResourceName: "chocolate")
                 
-            } else if barcode.rawTextString.last == "4" {
+            } else if barcode.text.last == "4" {
                 detailImageView.image = UIImage(imageLiteralResourceName: "coffee")
                 
-            } else if barcode.rawTextString.last == "6" {
+            } else if barcode.text.last == "6" {
                 detailImageView.image = UIImage(imageLiteralResourceName: "apple_sauce")
                 
-            } else if barcode.rawTextString.last == "8" {
+            } else if barcode.text.last == "8" {
                 detailImageView.image = UIImage(imageLiteralResourceName: "tea")
                 
             }

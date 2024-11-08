@@ -23,9 +23,19 @@ final class ARScanAndCountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Barcode formats you want to detect.
+        let formatsToDetect = SBSDKBarcodeFormats.all
+        
+        // Create an instance of `SBSDKBarcodeFormatCommonConfiguration`.
+        let formatConfiguration = SBSDKBarcodeFormatCommonConfiguration(formats: formatsToDetect)
+        
+        // Create an instance of `SBSDKBarcodeScannerConfiguration`.
+        let configuration = SBSDKBarcodeScannerConfiguration(barcodeFormatConfigurations: [formatConfiguration])
+        
         // Initialize the barcode scanner view controller
         scannerViewController = SBSDKBarcodeScanAndCountViewController(parentViewController: self,
                                                                        parentView: self.scannerView,
+                                                                       configuration: configuration,
                                                                        delegate: self)
         
         // To configure polygon style.
@@ -59,7 +69,7 @@ extension ARScanAndCountViewController: SBSDKBarcodeScanAndCountViewControllerDe
     // Delegate method which asks for a view of type UIView
     // Which then will be used as an overlay for the specific barcode 
     func barcodeScanAndCount(_ controller: SBSDKBarcodeScanAndCountViewController,
-                             overlayForBarcode code: SBSDKBarcodeScannerResult) -> UIView? {
+                             overlayForBarcode code: SBSDKBarcodeItem) -> UIView? {
         
         // Provide overlay view for the the AR overlay
         return UIImageView(image: UIImage(imageLiteralResourceName: "barcode_checkmark"))
@@ -67,18 +77,18 @@ extension ARScanAndCountViewController: SBSDKBarcodeScanAndCountViewControllerDe
     
     // Delegate method which provides detected barcodes
     func barcodeScanAndCount(_ controller: SBSDKBarcodeScanAndCountViewController,
-                             didDetectBarcodes codes: [SBSDKBarcodeScannerResult]) {
+                             didDetectBarcodes codes: [SBSDKBarcodeItem]) {
         
         // Check if the code is new or has been detected before
         codes.forEach { code in
             
             guard let existingCode = self.countedBarcodes.first(where: {
-                $0.code.type == code.type && $0.code.rawTextString == code.rawTextString
+                $0.item.format == code.format && $0.item.text == code.text
                 
             }) else {
                 
                 // If the code is new
-                self.countedBarcodes.append(SBSDKBarcodeScannerAccumulatingResult(barcodeResult: code))
+                self.countedBarcodes.append(SBSDKBarcodeScannerAccumulatingResult(barcodeItem: code))
                 return
             }
             

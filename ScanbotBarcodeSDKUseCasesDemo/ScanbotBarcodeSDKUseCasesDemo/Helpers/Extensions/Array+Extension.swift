@@ -8,11 +8,11 @@
 import Foundation
 import ScanbotBarcodeScannerSDK
 
-extension Array where Element == SBSDKBarcodeScannerResult {
+extension Array where Element == SBSDKBarcodeItem {
     func contains(barcode: Element) -> Bool {
         return self.contains(where: {
-            $0.rawTextStringWithExtension == barcode.rawTextStringWithExtension &&
-            $0.type == barcode.type
+            $0.textWithExtension == barcode.textWithExtension &&
+            $0.format == barcode.format
         })
     }
 }
