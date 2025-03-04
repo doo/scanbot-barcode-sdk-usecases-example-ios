@@ -29,7 +29,7 @@ final class DetectBarcodesOnStillImagesViewController: UIViewController {
     func detectBarcode(OnImage image: UIImage) {
         
         // Detect barcodes on the provided image
-        guard let results = barcodeScanner?.detectBarcodes(on: image) else { return }
+        guard let results = barcodeScanner?.scan(from: image) else { return }
         
         self.barcodeScannerResults = results.barcodes
         

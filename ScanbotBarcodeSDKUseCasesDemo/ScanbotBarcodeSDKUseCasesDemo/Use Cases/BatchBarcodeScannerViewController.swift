@@ -50,7 +50,7 @@ final class BatchBarcodeScannerViewController: UIViewController {
 extension BatchBarcodeScannerViewController: SBSDKBarcodeScannerViewControllerDelegate {
     
     func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
-                                  didDetectBarcodes codes: [SBSDKBarcodeItem]) {
+                                  didScanBarcodes codes: [SBSDKBarcodeItem]) {
         // Ignore barcodes that have already been detected
         codes.forEach { detectedBarcode in
             

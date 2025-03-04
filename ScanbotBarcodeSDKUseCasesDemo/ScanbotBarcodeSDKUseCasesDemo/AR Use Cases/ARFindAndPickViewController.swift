@@ -82,11 +82,11 @@ extension ARFindAndPickViewController: SBSDKBarcodeTrackingOverlayControllerDele
 
 extension ARFindAndPickViewController: SBSDKBarcodeScannerViewControllerDelegate {
     
-    func barcodeScannerControllerShouldDetectBarcodes(_ controller: SBSDKBarcodeScannerViewController) -> Bool {
+    func barcodeScannerControllerShouldScanBarcodes(_ controller: SBSDKBarcodeScannerViewController) -> Bool {
         return true
     }
     
     func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
-                                  didDetectBarcodes codes: [SBSDKBarcodeItem]) {
+                                  didScanBarcodes codes: [SBSDKBarcodeItem]) {
     }
 }

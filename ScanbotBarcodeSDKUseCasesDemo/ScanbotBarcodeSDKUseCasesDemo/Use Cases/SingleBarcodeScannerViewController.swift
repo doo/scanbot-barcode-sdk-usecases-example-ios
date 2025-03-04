@@ -51,7 +51,7 @@ final class SingleBarcodeScannerViewController: UIViewController {
 extension SingleBarcodeScannerViewController: SBSDKBarcodeScannerViewControllerDelegate {
     
     func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
-                                  didDetectBarcodes codes: [SBSDKBarcodeItem]) {
+                                  didScanBarcodes codes: [SBSDKBarcodeItem]) {
         // Get the first code
         guard let code = codes.first else { return }
         

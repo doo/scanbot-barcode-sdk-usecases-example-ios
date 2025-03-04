@@ -42,7 +42,7 @@ final class MultipleBarcodesScannerViewController: UIViewController {
 extension MultipleBarcodesScannerViewController: SBSDKBarcodeScannerViewControllerDelegate {
     
     func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
-                                  didDetectBarcodes codes: [SBSDKBarcodeItem]) {
+                                  didScanBarcodes codes: [SBSDKBarcodeItem]) {
         // Ignore barcodes that have already been detected
         codes.forEach { detectedBarcode in
             

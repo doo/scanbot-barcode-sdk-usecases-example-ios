@@ -77,7 +77,7 @@ extension ARScanAndCountViewController: SBSDKBarcodeScanAndCountViewControllerDe
     
     // Delegate method which provides detected barcodes
     func barcodeScanAndCount(_ controller: SBSDKBarcodeScanAndCountViewController,
-                             didDetectBarcodes codes: [SBSDKBarcodeItem]) {
+                             didScanBarcodes codes: [SBSDKBarcodeItem]) {
         
         // Check if the code is new or has been detected before
         codes.forEach { code in
