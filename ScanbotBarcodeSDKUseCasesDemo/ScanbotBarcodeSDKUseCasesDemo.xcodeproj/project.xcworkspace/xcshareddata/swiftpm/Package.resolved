@@ -1,13 +1,13 @@
 {
-  "originHash" : "a9b002ed34ef92c79e384958171682fa2b0da618f3c6c4063d8a67bf9c75de00",
+  "originHash" : "996b5b7d966ca3a2cd60f4fdc9e30e4d3692c08431c2054bff8b55885a4f4072",
   "pins" : [
     {
       "identity" : "scanbot-barcode-scanner-sdk-ios-spm",
       "kind" : "remoteSourceControl",
-      "location" : "git@github.com:doo/scanbot-barcode-scanner-sdk-ios-spm.git",
+      "location" : "https://github.com/doo/scanbot-barcode-scanner-sdk-ios-spm.git",
       "state" : {
-        "revision" : "3650a92839d9228a4b32ac834c653af4878d321e",
-        "version" : "7.0.0-RC13"
+        "revision" : "3d30ca4724b0da78a2798501b0c55d2898855fed",
+        "version" : "7.0.0-RC15"
       }
     }
   ],
