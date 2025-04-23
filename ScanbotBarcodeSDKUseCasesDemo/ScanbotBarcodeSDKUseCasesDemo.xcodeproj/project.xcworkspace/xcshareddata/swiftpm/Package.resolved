@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/doo/scanbot-barcode-scanner-sdk-ios-spm.git",
       "state" : {
-        "revision" : "3d30ca4724b0da78a2798501b0c55d2898855fed",
-        "version" : "7.0.0-RC15"
+        "revision" : "13e9a27941960902c00f9718ebbebfb15b093124",
+        "version" : "7.0.0"
       }
     }
   ],
