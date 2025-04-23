@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F10626FF2D80832200BEBFDA /* ScanbotBarcodeScannerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = F10626FE2D80832200BEBFDA /* ScanbotBarcodeScannerSDK */; };
 		F1379DD92A6A892D00518DA1 /* BannerUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1379DD82A6A892D00518DA1 /* BannerUITableViewCell.swift */; };
 		F165651B2A85038400BF7142 /* ARBarcodeVisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F165651A2A85038400BF7142 /* ARBarcodeVisionViewController.swift */; };
 		F165662B2A851C2C00BF7142 /* ARCustomOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F165662A2A851C2C00BF7142 /* ARCustomOverlayView.xib */; };
@@ -20,7 +21,6 @@
 		F19577C02A6A74EF0029B4B8 /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19577BF2A6A74EF0029B4B8 /* RootNavigationController.swift */; };
 		F19577C22A6A7EC80029B4B8 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19577C12A6A7EC80029B4B8 /* UIButton+Extension.swift */; };
 		F1A83C542A6187FF00CDE7C8 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A83C532A6187FF00CDE7C8 /* Array+Extension.swift */; };
-		F1D4C0502A61A9E900BC3665 /* ScanbotBarcodeScannerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = F1D4C04F2A61A9E900BC3665 /* ScanbotBarcodeScannerSDK */; };
 		F1ECF50C2A5F199400285A5F /* UseCasesListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECF50B2A5F199400285A5F /* UseCasesListTableViewController.swift */; };
 		F1ECF50E2A5FF89800285A5F /* MultipleBarcodesScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECF50D2A5FF89800285A5F /* MultipleBarcodesScannerViewController.swift */; };
 		F1ECF5102A5FF95D00285A5F /* BatchBarcodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECF50F2A5FF95D00285A5F /* BatchBarcodeScannerViewController.swift */; };
@@ -68,7 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1D4C0502A61A9E900BC3665 /* ScanbotBarcodeScannerSDK in Frameworks */,
+				F10626FF2D80832200BEBFDA /* ScanbotBarcodeScannerSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,7 +212,7 @@
 			);
 			name = ScanbotBarcodeSDKUseCasesDemo;
 			packageProductDependencies = (
-				F1D4C04F2A61A9E900BC3665 /* ScanbotBarcodeScannerSDK */,
+				F10626FE2D80832200BEBFDA /* ScanbotBarcodeScannerSDK */,
 			);
 			productName = "Scanbot Barcode SDK";
 			productReference = F18AE9412A5EC2AD006E7DE5 /* ScanbotBarcodeSDKUseCasesDemo.app */;
@@ -243,7 +243,7 @@
 			);
 			mainGroup = F18AE9382A5EC2AD006E7DE5;
 			packageReferences = (
-				F1D4C04E2A61A9E900BC3665 /* XCRemoteSwiftPackageReference "scanbot-barcode-scanner-sdk-ios-spm" */,
+				F10626FD2D80832200BEBFDA /* XCRemoteSwiftPackageReference "scanbot-barcode-scanner-sdk-ios-spm" */,
 			);
 			productRefGroup = F18AE9422A5EC2AD006E7DE5 /* Products */;
 			projectDirPath = "";
@@ -516,20 +516,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F1D4C04E2A61A9E900BC3665 /* XCRemoteSwiftPackageReference "scanbot-barcode-scanner-sdk-ios-spm" */ = {
+		F10626FD2D80832200BEBFDA /* XCRemoteSwiftPackageReference "scanbot-barcode-scanner-sdk-ios-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:doo/scanbot-barcode-scanner-sdk-ios-spm.git";
+			repositoryURL = "https://github.com/doo/scanbot-barcode-scanner-sdk-ios-spm.git";
 			requirement = {
 				kind = exactVersion;
-				version = 5.0.0;
+				version = 7.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F1D4C04F2A61A9E900BC3665 /* ScanbotBarcodeScannerSDK */ = {
+		F10626FE2D80832200BEBFDA /* ScanbotBarcodeScannerSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F1D4C04E2A61A9E900BC3665 /* XCRemoteSwiftPackageReference "scanbot-barcode-scanner-sdk-ios-spm" */;
+			package = F10626FD2D80832200BEBFDA /* XCRemoteSwiftPackageReference "scanbot-barcode-scanner-sdk-ios-spm" */;
 			productName = ScanbotBarcodeScannerSDK;
 		};
 /* End XCSwiftPackageProductDependency section */

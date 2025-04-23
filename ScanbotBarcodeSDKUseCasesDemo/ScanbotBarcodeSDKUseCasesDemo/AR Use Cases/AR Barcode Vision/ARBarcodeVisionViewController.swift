@@ -17,9 +17,19 @@ class ARBarcodeVisionViewController: UIViewController {
     
     override func viewDidLoad() {
         
+        // Barcode formats you want to detect.
+        let formatsToDetect = SBSDKBarcodeFormats.all
+        
+        // Create an instance of `SBSDKBarcodeFormatCommonConfiguration`.
+        let formatConfiguration = SBSDKBarcodeFormatCommonConfiguration(formats: formatsToDetect)
+        
+        // Create an instance of `SBSDKBarcodeScannerConfiguration`.
+        let configuration = SBSDKBarcodeScannerConfiguration(barcodeFormatConfigurations: [formatConfiguration])
+        
         // Initialize the barcode scanner view controller
         scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
-                                                                  parentView: self.scannerView)
+                                                                  parentView: self.scannerView,
+                                                                  configuration: configuration)
         
         // Enable tracking overlay
         scannerViewController.isTrackingOverlayEnabled = true

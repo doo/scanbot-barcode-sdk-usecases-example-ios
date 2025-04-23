@@ -17,21 +17,21 @@ final class DetectBarcodesOnStillImagesViewController: UIViewController {
     private var barcodeScanner: SBSDKBarcodeScanner?
     
     // To store detected barcodes
-    private var barcodeScannerResults = [SBSDKBarcodeScannerResult]()
+    private var barcodeScannerResults = [SBSDKBarcodeItem]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Initialise the barcode scanner with all barcode types
-        barcodeScanner = SBSDKBarcodeScanner(types: SBSDKBarcodeType.allTypes)
+        barcodeScanner = SBSDKBarcodeScanner(formats: SBSDKBarcodeFormats.all)
     }
     
     func detectBarcode(OnImage image: UIImage) {
         
         // Detect barcodes on the provided image
-        guard let results = barcodeScanner?.detectBarCodes(on: image) else { return }
+        guard let results = barcodeScanner?.scan(from: image) else { return }
         
-        self.barcodeScannerResults = results
+        self.barcodeScannerResults = results.barcodes
         
         DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -73,9 +73,9 @@ extension DetectBarcodesOnStillImagesViewController: UITableViewDataSource, UITa
         if let cell = tableView.dequeueReusableCell(withIdentifier: "barCodeResultCell")
             as? BarcodeResultTableViewCell {
             
-            cell.barcodeImageView.image = self.barcodeScannerResults[indexPath.row].barcodeImage
-            cell.barcodeTextLabel.text = self.barcodeScannerResults[indexPath.row].rawTextStringWithExtension
-            cell.barcodeTypeLabel.text = self.barcodeScannerResults[indexPath.row].type.name
+            cell.barcodeImageView.image = self.barcodeScannerResults[indexPath.row].sourceImage?.toUIImage()
+            cell.barcodeTextLabel.text = self.barcodeScannerResults[indexPath.row].textWithExtension
+            cell.barcodeTypeLabel.text = self.barcodeScannerResults[indexPath.row].format.name
             
             return cell
         }

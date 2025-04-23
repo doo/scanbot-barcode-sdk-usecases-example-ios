@@ -17,14 +17,24 @@ final class ARSelectScanViewController: UIViewController {
     private var scannerViewController: SBSDKBarcodeScannerViewController!
     
     // To store selected barcodes
-    private var selectedBarcodes = [SBSDKBarcodeScannerResult]()
+    private var selectedBarcodes = [SBSDKBarcodeItem]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Barcode formats you want to detect.
+        let formatsToDetect = SBSDKBarcodeFormats.all
+        
+        // Create an instance of `SBSDKBarcodeFormatCommonConfiguration`.
+        let formatConfiguration = SBSDKBarcodeFormatCommonConfiguration(formats: formatsToDetect)
+        
+        // Create an instance of `SBSDKBarcodeScannerConfiguration`.
+        let configuration = SBSDKBarcodeScannerConfiguration(barcodeFormatConfigurations: [formatConfiguration])
+        
         // Initialize the barcode scanner view controller
         scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
-                                                                  parentView: self.scannerView)
+                                                                  parentView: self.scannerView,
+                                                                  configuration: configuration)
         
         // Enable AR tracking overlay and set the delegate
         scannerViewController.isTrackingOverlayEnabled = true
@@ -67,7 +77,7 @@ extension ARSelectScanViewController: SBSDKBarcodeTrackingOverlayControllerDeleg
     
     // Delegate method which provides selected barcodes
     func barcodeTrackingOverlay(_ controller: SBSDKBarcodeTrackingOverlayController,
-                                didChangeSelectedBarcodes selectedBarcodes: [SBSDKBarcodeScannerResult]) {
+                                didChangeSelectedBarcodes selectedBarcodes: [SBSDKBarcodeItem]) {
             
         // Process the selected barcodes
         self.selectedBarcodes = selectedBarcodes
@@ -89,9 +99,9 @@ extension ARSelectScanViewController: UITableViewDataSource, UITableViewDelegate
         let cell = tableView.dequeueReusableCell(withIdentifier: "barCodeResultCell", for: indexPath) as!
         BarcodeResultTableViewCell
         
-        cell.barcodeTextLabel?.text = selectedBarcodes[indexPath.row].rawTextStringWithExtension
-        cell.barcodeTypeLabel?.text = selectedBarcodes[indexPath.row].type.name
-        cell.barcodeImageView?.image = selectedBarcodes[indexPath.row].barcodeImage
+        cell.barcodeTextLabel?.text = selectedBarcodes[indexPath.row].textWithExtension
+        cell.barcodeTypeLabel?.text = selectedBarcodes[indexPath.row].format.name
+        cell.barcodeImageView?.image = selectedBarcodes[indexPath.row].sourceImage?.toUIImage()
         
         return cell
     }

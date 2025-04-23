@@ -18,14 +18,24 @@ final class DistantBarcodesScannerViewController: UIViewController {
     private var scannerViewController: SBSDKBarcodeScannerViewController!
     
     // To store detected barcode
-    private var detectedCode: SBSDKBarcodeScannerResult?
+    private var detectedCode: SBSDKBarcodeItem?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Barcode formats you want to detect.
+        let formatsToDetect = SBSDKBarcodeFormats.all
+        
+        // Create an instance of `SBSDKBarcodeFormatCommonConfiguration`.
+        let formatConfiguration = SBSDKBarcodeFormatCommonConfiguration(formats: formatsToDetect)
+        
+        // Create an instance of `SBSDKBarcodeScannerConfiguration`.
+        let configuration = SBSDKBarcodeScannerConfiguration(barcodeFormatConfigurations: [formatConfiguration])
+        
         // Initialize the barcode scanner view controller
         self.scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
                                                                        parentView: self.scannerView,
+                                                                       configuration: configuration,
                                                                        delegate: self)
         
         // Retrieve the current applied zoom configurations and modify it
@@ -48,19 +58,18 @@ final class DistantBarcodesScannerViewController: UIViewController {
 extension DistantBarcodesScannerViewController: SBSDKBarcodeScannerViewControllerDelegate {
     
     func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
-                                  didDetectBarcodes codes: [SBSDKBarcodeScannerResult]) {
-        
+                                  didScanBarcodes codes: [SBSDKBarcodeItem]) {
         // Get the first code
         guard let code = codes.first else { return }
         
         // Ignore the barcode if it has been detected before
-        guard code.rawTextStringWithExtension != self.detectedCode?.rawTextStringWithExtension ||
-              code.type != self.detectedCode?.type
+        guard code.textWithExtension != self.detectedCode?.textWithExtension ||
+                code.format != self.detectedCode?.format
         else { return }
         
         self.detectedCode = code
         
-        self.barcodeImageView.image = detectedCode?.barcodeImage
-        self.barcodeTextLabel.text = detectedCode?.rawTextStringWithExtension
+        self.barcodeImageView.image = detectedCode?.sourceImage?.toUIImage()
+        self.barcodeTextLabel.text = detectedCode?.textWithExtension
     }
 }

@@ -17,14 +17,24 @@ final class MultipleBarcodesScannerViewController: UIViewController {
     private var scannerViewController: SBSDKBarcodeScannerViewController!
     
     // To store detected barcodes
-    private var barcodeResults = [SBSDKBarcodeScannerResult]()
+    private var barcodeResults = [SBSDKBarcodeItem]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Barcode formats you want to detect.
+        let formatsToDetect = SBSDKBarcodeFormats.all
+        
+        // Create an instance of `SBSDKBarcodeFormatCommonConfiguration`.
+        let formatConfiguration = SBSDKBarcodeFormatCommonConfiguration(formats: formatsToDetect)
+        
+        // Create an instance of `SBSDKBarcodeScannerConfiguration`.
+        let configuration = SBSDKBarcodeScannerConfiguration(barcodeFormatConfigurations: [formatConfiguration])
+        
         // Initialize the barcode scanner view controller
         scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
                                                                   parentView: self.scannerView,
+                                                                  configuration: configuration,
                                                                   delegate: self)
     }
 }
@@ -32,8 +42,7 @@ final class MultipleBarcodesScannerViewController: UIViewController {
 extension MultipleBarcodesScannerViewController: SBSDKBarcodeScannerViewControllerDelegate {
     
     func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
-                                  didDetectBarcodes codes: [SBSDKBarcodeScannerResult]) {
-        
+                                  didScanBarcodes codes: [SBSDKBarcodeItem]) {
         // Ignore barcodes that have already been detected
         codes.forEach { detectedBarcode in
             
@@ -62,9 +71,9 @@ extension MultipleBarcodesScannerViewController: UITableViewDataSource, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "barCodeResultCell", for: indexPath) as!
         BarcodeResultTableViewCell
         
-        cell.barcodeTextLabel?.text = barcodeResults[indexPath.row].rawTextStringWithExtension
-        cell.barcodeTypeLabel?.text = barcodeResults[indexPath.row].type.name
-        cell.barcodeImageView?.image = barcodeResults[indexPath.row].barcodeImage
+        cell.barcodeTextLabel?.text = barcodeResults[indexPath.row].textWithExtension
+        cell.barcodeTypeLabel?.text = barcodeResults[indexPath.row].format.name
+        cell.barcodeImageView?.image = barcodeResults[indexPath.row].sourceImage?.toUIImage()
         
         return cell
     }
