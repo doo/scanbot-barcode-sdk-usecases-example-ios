@@ -31,6 +31,9 @@ final class BatchBarcodeScannerViewController: UIViewController {
         // Create an instance of `SBSDKBarcodeScannerConfiguration`.
         let configuration = SBSDKBarcodeScannerConfiguration(barcodeFormatConfigurations: [formatConfiguration])
         
+        // Specify whether the barcode result should contain the barcode image.
+        configuration.returnBarcodeImage = true
+        
         // Initialize the barcode scanner
         self.scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
                                                                        parentView: self.scannerView,

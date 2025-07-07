@@ -17,7 +17,7 @@ final class ARSelectScanViewController: UIViewController {
     private var scannerViewController: SBSDKBarcodeScannerViewController!
     
     // To store selected barcodes
-    private var selectedBarcodes = [SBSDKBarcodeItem]()
+    private var selectedBarcodes = SBSDKBarcodeItemSelection()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +31,9 @@ final class ARSelectScanViewController: UIViewController {
         // Create an instance of `SBSDKBarcodeScannerConfiguration`.
         let configuration = SBSDKBarcodeScannerConfiguration(barcodeFormatConfigurations: [formatConfiguration])
         
+        // Specify whether the barcode result should contain the barcode image.
+        configuration.returnBarcodeImage = true
+        
         // Initialize the barcode scanner view controller
         scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
                                                                   parentView: self.scannerView,
@@ -42,8 +45,6 @@ final class ARSelectScanViewController: UIViewController {
         
         // Configure AR tracking overlay for the scanner
         let trackingConfiguration = SBSDKBarcodeTrackingOverlayConfiguration()
-        trackingConfiguration.isAutomaticSelectionEnabled = false
-        trackingConfiguration.isSelectable = true
         
         // If you want to override the default styling of the overlay
         // You can set the style properties of the configuration
@@ -62,8 +63,8 @@ final class ARSelectScanViewController: UIViewController {
         let textOverlayStyle = SBSDKBarcodeTrackedViewTextStyle()
         textOverlayStyle.textColor = .black
         textOverlayStyle.textBackgroundColor = UIColor(red: 255/255, green: 187/255, blue: 51/255, alpha: 1) //🟡
-        textOverlayStyle.selectedTextColor = .black
-        textOverlayStyle.textBackgroundSelectedColor = UIColor(red: 85/255, green: 187/255, blue: 119/255, alpha: 1) //🟢
+        textOverlayStyle.highlightedTextColor = .black
+        textOverlayStyle.textBackgroundHighlightedColor = UIColor(red: 85/255, green: 187/255, blue: 119/255, alpha: 1) //🟢
         
         // Set the configured info view style
         trackingConfiguration.textStyle = textOverlayStyle
@@ -75,13 +76,17 @@ final class ARSelectScanViewController: UIViewController {
 
 extension ARSelectScanViewController: SBSDKBarcodeTrackingOverlayControllerDelegate {
     
-    // Delegate method which provides selected barcodes
+    // Delegate method which provides the tapped barcode.
     func barcodeTrackingOverlay(_ controller: SBSDKBarcodeTrackingOverlayController,
-                                didChangeSelectedBarcodes selectedBarcodes: [SBSDKBarcodeItem]) {
-            
-        // Process the selected barcodes
-        self.selectedBarcodes = selectedBarcodes
+                                didTapOnBarcode barcode: SBSDKBarcodeItem) {
+        selectedBarcodes.toggleSelection(for: barcode)
         self.resultListTableView.reloadData()
+    }
+    
+    // Delegate method which asks to provide if the barcode tracking overlay should highlight a barcode.
+    func barcodeTrackingOverlay(_ controller: SBSDKBarcodeTrackingOverlayController,
+                                shouldHighlight barcode: SBSDKBarcodeItem) -> Bool {
+        selectedBarcodes.contains(barcode: barcode)
     }
 }
 
@@ -99,9 +104,9 @@ extension ARSelectScanViewController: UITableViewDataSource, UITableViewDelegate
         let cell = tableView.dequeueReusableCell(withIdentifier: "barCodeResultCell", for: indexPath) as!
         BarcodeResultTableViewCell
         
-        cell.barcodeTextLabel?.text = selectedBarcodes[indexPath.row].textWithExtension
-        cell.barcodeTypeLabel?.text = selectedBarcodes[indexPath.row].format.name
-        cell.barcodeImageView?.image = selectedBarcodes[indexPath.row].sourceImage?.toUIImage()
+        cell.barcodeTextLabel?.text = selectedBarcodes.allBarcodes[indexPath.row].textWithExtension
+        cell.barcodeTypeLabel?.text = selectedBarcodes.allBarcodes[indexPath.row].format.name
+        cell.barcodeImageView?.image = selectedBarcodes.allBarcodes[indexPath.row].sourceImage?.toUIImage()
         
         return cell
     }

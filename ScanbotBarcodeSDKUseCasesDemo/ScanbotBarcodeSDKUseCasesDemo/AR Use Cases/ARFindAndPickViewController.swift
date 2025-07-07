@@ -27,6 +27,9 @@ final class ARFindAndPickViewController: UIViewController {
         // Create an instance of `SBSDKBarcodeScannerConfiguration`.
         let configuration = SBSDKBarcodeScannerConfiguration(barcodeFormatConfigurations: [formatConfiguration])
         
+        // Specify whether the barcode result should contain the barcode image.
+        configuration.returnBarcodeImage = true
+        
         // Initialize the barcode scanner view controller
         scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
                                                                   parentView: self.scannerView,
@@ -35,22 +38,15 @@ final class ARFindAndPickViewController: UIViewController {
         // Enable AR tracking overlay and set the delegate
         scannerViewController.isTrackingOverlayEnabled = true
         scannerViewController.trackingOverlayController.delegate = self
-        
-        // Configure AR tracking overlay for the scanner
-        let trackingConfiguration = SBSDKBarcodeTrackingOverlayConfiguration()
-        trackingConfiguration.isAutomaticSelectionEnabled = false
-        trackingConfiguration.isSelectable = false
-        
-        // Set the tracking configuration
-        scannerViewController.trackingOverlayController.configuration = trackingConfiguration
     }
 }
 
 extension ARFindAndPickViewController: SBSDKBarcodeTrackingOverlayControllerDelegate {
     
-    // Delegate method to provide a custom style for a tracked barcodes polygon
+    // Delegate method to provide a custom style for a tracked barcodes polygon.
     func barcodeTrackingOverlay(_ controller: SBSDKBarcodeTrackingOverlayController,
-                                polygonStyleFor barcode: SBSDKBarcodeItem) -> SBSDKBarcodeTrackedViewPolygonStyle? {
+                                polygonStyleFor barcode: SBSDKBarcodeItem,
+                                proposedStyle: SBSDKBarcodeTrackedViewPolygonStyle) -> SBSDKBarcodeTrackedViewPolygonStyle {
         
         // Provide custom style for tracked barcodes polygon
         let polygonStyle = SBSDKBarcodeTrackedViewPolygonStyle()
@@ -70,7 +66,8 @@ extension ARFindAndPickViewController: SBSDKBarcodeTrackingOverlayControllerDele
     
     // Delegate method to provide a custom style for a tracked barcodes info view
     func barcodeTrackingOverlay(_ controller: SBSDKBarcodeTrackingOverlayController,
-                                textStyleFor barcode: SBSDKBarcodeItem) -> SBSDKBarcodeTrackedViewTextStyle? {
+                                textStyleFor barcode: SBSDKBarcodeItem,
+                                proposedStyle: SBSDKBarcodeTrackedViewTextStyle) -> SBSDKBarcodeTrackedViewTextStyle {
         
         // Provide custom style for tracked barcodes info view
         let textStyle = SBSDKBarcodeTrackedViewTextStyle()
