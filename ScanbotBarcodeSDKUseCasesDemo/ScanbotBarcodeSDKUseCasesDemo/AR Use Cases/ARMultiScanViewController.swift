@@ -31,6 +31,9 @@ final class ARMultiScanViewController: UIViewController {
         // Create an instance of `SBSDKBarcodeScannerConfiguration`.
         let configuration = SBSDKBarcodeScannerConfiguration(barcodeFormatConfigurations: [formatConfiguration])
         
+        // Specify whether the barcode result should contain the barcode image.
+        configuration.returnBarcodeImage = true
+        
         // Initialize the barcode scanner view controller
         scannerViewController = SBSDKBarcodeScannerViewController(parentViewController: self,
                                                                   parentView: self.scannerView,
@@ -42,8 +45,6 @@ final class ARMultiScanViewController: UIViewController {
 
         // Configure AR tracking overlay for the scanner
         let trackingConfiguration = SBSDKBarcodeTrackingOverlayConfiguration()
-        trackingConfiguration.isAutomaticSelectionEnabled = true
-        trackingConfiguration.isSelectable = false
 
         // To configure tracked barcodes info view
         let trackedViewTextStyle = SBSDKBarcodeTrackedViewTextStyle()
