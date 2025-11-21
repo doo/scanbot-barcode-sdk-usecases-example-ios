@@ -17,17 +17,17 @@ final class TinyBarcodesScannerViewController: UIViewController {
     // Barcode scanner view controller
     private var scannerViewController: SBSDKBarcodeScannerViewController!
     
-    // To store detected barcode
-    private var detectedCode: SBSDKBarcodeItem?
+    // To store scanned barcode
+    private var scannedCode: SBSDKBarcodeItem?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Barcode formats you want to detect.
-        let formatsToDetect = SBSDKBarcodeFormats.all
+        // Barcode formats you want to scan.
+        let formatsToScan = SBSDKBarcodeFormats.all
         
         // Create an instance of `SBSDKBarcodeFormatCommonConfiguration`.
-        let formatConfiguration = SBSDKBarcodeFormatCommonConfiguration(formats: formatsToDetect)
+        let formatConfiguration = SBSDKBarcodeFormatCommonConfiguration(formats: formatsToScan)
         
         // Create an instance of `SBSDKBarcodeScannerConfiguration`.
         let configuration = SBSDKBarcodeScannerConfiguration(barcodeFormatConfigurations: [formatConfiguration])
@@ -66,14 +66,25 @@ extension TinyBarcodesScannerViewController: SBSDKBarcodeScannerViewControllerDe
         // Get the first code
         guard let code = codes.first else { return }
         
-        // Ignore the barcode if it has been detected before
-        guard code.textWithExtension != self.detectedCode?.textWithExtension ||
-                code.format != self.detectedCode?.format
+        // Ignore the barcode if it has been scanned before
+        guard code.textWithExtension != self.scannedCode?.textWithExtension ||
+                code.format != self.scannedCode?.format
         else { return }
         
-        self.detectedCode = code
+        self.scannedCode = code
         
-        self.barcodeImageView.image = detectedCode?.sourceImage?.toUIImage()
-        self.barcodeTextLabel.text = detectedCode?.textWithExtension
+        self.barcodeImageView.image = try? scannedCode?.sourceImage?.toUIImage()
+        self.barcodeTextLabel.text = scannedCode?.textWithExtension
+    }
+    
+    func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
+                                  didFailScanning error: any Error) {
+        if let error = error as? SBSDKError {
+            if error.isCanceled {
+                print("Scanning was cancelled by the user")
+            } else {
+                print(error.localizedDescription)
+            }
+        }
     }
 }

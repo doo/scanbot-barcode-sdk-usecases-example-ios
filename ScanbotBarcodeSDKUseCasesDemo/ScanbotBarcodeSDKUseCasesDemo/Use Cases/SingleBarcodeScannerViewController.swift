@@ -18,16 +18,16 @@ final class SingleBarcodeScannerViewController: UIViewController {
     // Barcode scanner view controller
     private var scannerViewController: SBSDKBarcodeScannerViewController!
     
-    private var detectedCode: SBSDKBarcodeItem?
+    private var scannedCode: SBSDKBarcodeItem?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Barcode formats you want to detect.
-        let formatsToDetect = SBSDKBarcodeFormats.all
+        // Barcode formats you want to scan.
+        let formatsToScan = SBSDKBarcodeFormats.all
         
         // Create an instance of `SBSDKBarcodeFormatCommonConfiguration`.
-        let formatConfiguration = SBSDKBarcodeFormatCommonConfiguration(formats: formatsToDetect)
+        let formatConfiguration = SBSDKBarcodeFormatCommonConfiguration(formats: formatsToScan)
         
         // Create an instance of `SBSDKBarcodeScannerConfiguration`.
         let configuration = SBSDKBarcodeScannerConfiguration(barcodeFormatConfigurations: [formatConfiguration])
@@ -59,13 +59,24 @@ extension SingleBarcodeScannerViewController: SBSDKBarcodeScannerViewControllerD
         guard let code = codes.first else { return }
         
         // Ignore the barcode if it is same as the last one
-        guard code.textWithExtension != self.detectedCode?.textWithExtension ||
-                code.format != self.detectedCode?.format
+        guard code.textWithExtension != self.scannedCode?.textWithExtension ||
+                code.format != self.scannedCode?.format
         else { return }
         
-        self.detectedCode = code
+        self.scannedCode = code
         
-        self.barcodeImageView.image = detectedCode?.sourceImage?.toUIImage()
-        self.barcodeTextLabel.text = detectedCode?.textWithExtension
+        self.barcodeImageView.image = try? scannedCode?.sourceImage?.toUIImage()
+        self.barcodeTextLabel.text = scannedCode?.textWithExtension
+    }
+    
+    func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
+                                  didFailScanning error: any Error) {
+        if let error = error as? SBSDKError {
+            if error.isCanceled {
+                print("Scanning was cancelled by the user")
+            } else {
+                print(error.localizedDescription)
+            }
+        }
     }
 }

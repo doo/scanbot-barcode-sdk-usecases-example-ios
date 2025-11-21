@@ -22,11 +22,11 @@ final class ARSelectScanViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Barcode formats you want to detect.
-        let formatsToDetect = SBSDKBarcodeFormats.all
+        // Barcode formats you want to scan.
+        let formatsToScan = SBSDKBarcodeFormats.all
         
         // Create an instance of `SBSDKBarcodeFormatCommonConfiguration`.
-        let formatConfiguration = SBSDKBarcodeFormatCommonConfiguration(formats: formatsToDetect)
+        let formatConfiguration = SBSDKBarcodeFormatCommonConfiguration(formats: formatsToScan)
         
         // Create an instance of `SBSDKBarcodeScannerConfiguration`.
         let configuration = SBSDKBarcodeScannerConfiguration(barcodeFormatConfigurations: [formatConfiguration])
@@ -106,7 +106,7 @@ extension ARSelectScanViewController: UITableViewDataSource, UITableViewDelegate
         
         cell.barcodeTextLabel?.text = selectedBarcodes.allBarcodes[indexPath.row].textWithExtension
         cell.barcodeTypeLabel?.text = selectedBarcodes.allBarcodes[indexPath.row].format.name
-        cell.barcodeImageView?.image = selectedBarcodes.allBarcodes[indexPath.row].sourceImage?.toUIImage()
+        cell.barcodeImageView?.image = try? selectedBarcodes.allBarcodes[indexPath.row].sourceImage?.toUIImage()
         
         return cell
     }
