@@ -501,7 +501,7 @@
 			repositoryURL = "https://github.com/doo/scanbot-barcode-scanner-sdk-ios-spm.git";
 			requirement = {
 				kind = exactVersion;
-				version = "8.0.0-RC11";
+				version = 8.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
