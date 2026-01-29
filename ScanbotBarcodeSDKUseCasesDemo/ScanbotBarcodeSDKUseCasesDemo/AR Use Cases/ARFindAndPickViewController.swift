@@ -18,11 +18,11 @@ final class ARFindAndPickViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Barcode formats you want to detect.
-        let formatsToDetect = SBSDKBarcodeFormats.all
+        // Barcode formats you want to scan.
+        let formatsToScan = SBSDKBarcodeFormats.all
         
         // Create an instance of `SBSDKBarcodeFormatCommonConfiguration`.
-        let formatConfiguration = SBSDKBarcodeFormatCommonConfiguration(formats: formatsToDetect)
+        let formatConfiguration = SBSDKBarcodeFormatCommonConfiguration(formats: formatsToScan)
         
         // Create an instance of `SBSDKBarcodeScannerConfiguration`.
         let configuration = SBSDKBarcodeScannerConfiguration(barcodeFormatConfigurations: [formatConfiguration])
@@ -85,5 +85,16 @@ extension ARFindAndPickViewController: SBSDKBarcodeScannerViewControllerDelegate
     
     func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
                                   didScanBarcodes codes: [SBSDKBarcodeItem]) {
+    }
+    
+    func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
+                                  didFailScanning error: any Error) {
+        if let error = error as? SBSDKError {
+            if error.isCanceled {
+                print("Scanning was cancelled by the user")
+            } else {
+                print(error.localizedDescription)
+            }
+        }
     }
 }

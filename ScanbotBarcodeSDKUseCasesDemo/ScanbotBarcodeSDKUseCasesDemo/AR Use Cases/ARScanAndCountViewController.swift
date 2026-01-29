@@ -23,11 +23,11 @@ final class ARScanAndCountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Barcode formats you want to detect.
-        let formatsToDetect = SBSDKBarcodeFormats.all
+        // Barcode formats you want to scan.
+        let formatsToScan = SBSDKBarcodeFormats.all
         
         // Create an instance of `SBSDKBarcodeFormatCommonConfiguration`.
-        let formatConfiguration = SBSDKBarcodeFormatCommonConfiguration(formats: formatsToDetect)
+        let formatConfiguration = SBSDKBarcodeFormatCommonConfiguration(formats: formatsToScan)
         
         // Create an instance of `SBSDKBarcodeScannerConfiguration`.
         let configuration = SBSDKBarcodeScannerConfiguration(barcodeFormatConfigurations: [formatConfiguration])
@@ -78,11 +78,11 @@ extension ARScanAndCountViewController: SBSDKBarcodeScanAndCountViewControllerDe
         return UIImageView(image: UIImage(imageLiteralResourceName: "barcode_checkmark"))
     }
     
-    // Delegate method which provides detected barcodes
+    // Delegate method which provides scanned barcodes
     func barcodeScanAndCount(_ controller: SBSDKBarcodeScanAndCountViewController,
                              didScanBarcodes codes: [SBSDKBarcodeItem]) {
         
-        // Check if the code is new or has been detected before
+        // Check if the code is new or has been scanned before
         codes.forEach { code in
             
             guard let existingCode = self.countedBarcodes.first(where: {
@@ -104,5 +104,16 @@ extension ARScanAndCountViewController: SBSDKBarcodeScanAndCountViewControllerDe
         
         self.currentBarcodesFound.text = "Found barcodes now: \(String(currentBarcodesFound))"
         self.totalDifferentBarcodes.text = "Total different barcodes: \(String(totalDifferentBarcodes))"
+    }
+    
+    func barcodeScanAndCount(_ controller: SBSDKBarcodeScanAndCountViewController,
+                             didFailScanning error: any Error) {
+        if let error = error as? SBSDKError {
+            if error.isCanceled {
+                print("Scanning was cancelled by the user")
+            } else {
+                print(error.localizedDescription)
+            }
+        }
     }
 }

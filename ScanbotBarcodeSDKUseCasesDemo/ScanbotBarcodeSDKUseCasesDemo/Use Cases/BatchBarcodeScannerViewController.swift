@@ -16,17 +16,17 @@ final class BatchBarcodeScannerViewController: UIViewController {
     // Initialize the barcode scanner view controller
     private var scannerViewController: SBSDKBarcodeScannerViewController!
     
-    // To store detected barcodes
+    // To store scanned barcodes
     private var barcodeResults = [SBSDKBarcodeItem]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Barcode formats you want to detect.
-        let formatsToDetect = SBSDKBarcodeFormats.all
+        // Barcode formats you want to scan.
+        let formatsToScan = SBSDKBarcodeFormats.all
         
         // Create an instance of `SBSDKBarcodeFormatCommonConfiguration`.
-        let formatConfiguration = SBSDKBarcodeFormatCommonConfiguration(formats: formatsToDetect)
+        let formatConfiguration = SBSDKBarcodeFormatCommonConfiguration(formats: formatsToScan)
         
         // Create an instance of `SBSDKBarcodeScannerConfiguration`.
         let configuration = SBSDKBarcodeScannerConfiguration(barcodeFormatConfigurations: [formatConfiguration])
@@ -54,17 +54,28 @@ extension BatchBarcodeScannerViewController: SBSDKBarcodeScannerViewControllerDe
     
     func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
                                   didScanBarcodes codes: [SBSDKBarcodeItem]) {
-        // Ignore barcodes that have already been detected
-        codes.forEach { detectedBarcode in
+        // Ignore barcodes that have already been scanned
+        codes.forEach { scannedBarcode in
             
-            // Check detected barcode's name, extension, and type with previously detected barcodes
-            // Ignore barcode if it has already been detected
-            if !self.barcodeResults.contains(barcode: detectedBarcode) {
-                self.barcodeResults.append(detectedBarcode)
+            // Check scanned barcode's name, extension, and type with previously scanned barcodes
+            // Ignore barcode if it has already been scanned
+            if !self.barcodeResults.contains(barcode: scannedBarcode) {
+                self.barcodeResults.append(scannedBarcode)
             }
         }
         
         self.resultListTableView.reloadData()
+    }
+    
+    func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
+                                  didFailScanning error: any Error) {
+        if let error = error as? SBSDKError {
+            if error.isCanceled {
+                print("Scanning was cancelled by the user")
+            } else {
+                print(error.localizedDescription)
+            }
+        }
     }
 }
 
@@ -84,7 +95,7 @@ extension BatchBarcodeScannerViewController: UITableViewDataSource, UITableViewD
         
         cell.barcodeTextLabel?.text = barcodeResults[indexPath.row].textWithExtension
         cell.barcodeTypeLabel?.text = barcodeResults[indexPath.row].format.name
-        cell.barcodeImageView?.image = barcodeResults[indexPath.row].sourceImage?.toUIImage()
+        cell.barcodeImageView?.image = try? barcodeResults[indexPath.row].sourceImage?.toUIImage()
         
         return cell
     }

@@ -1,5 +1,5 @@
 //
-//  DetectBarcodesOnStillImagesViewController.swift
+//  ScanBarcodesOnStillImagesViewController.swift
 //  Scanbot Barcode SDK
 //
 //  Created by Rana Sohaib on 13.07.23.
@@ -9,37 +9,54 @@ import UIKit
 import PhotosUI
 import ScanbotBarcodeScannerSDK
 
-final class DetectBarcodesOnStillImagesViewController: UIViewController {
+final class ScanBarcodesOnStillImagesViewController: UIViewController {
     
     @IBOutlet private var tableView: UITableView!
     
     // Barcode scanner
     private var barcodeScanner: SBSDKBarcodeScanner?
     
-    // To store detected barcodes
+    // To store scanned barcodes
     private var barcodeScannerResults = [SBSDKBarcodeItem]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Initialise the barcode scanner with all barcode types
-        barcodeScanner = SBSDKBarcodeScanner(formats: SBSDKBarcodeFormats.all)
+        // Create barcode scanner configuration.
+        let configuration = SBSDKBarcodeScannerConfiguration(barcodeFormats: SBSDKBarcodeFormats.all)
+        
+        do {
+            // Initialise the barcode scanner using the configuration.
+            barcodeScanner = try SBSDKBarcodeScanner(configuration: configuration)
+        }
+        catch {
+            print("Error initializing barcode scanner: \(error.localizedDescription)")
+        }
     }
     
-    func detectBarcode(OnImage image: UIImage) {
+    func scanBarcode(on image: UIImage) {
+        guard let barcodeScanner else { return }
         
-        // Detect barcodes on the provided image
-        guard let results = barcodeScanner?.scan(from: image) else { return }
-        
-        self.barcodeScannerResults = results.barcodes
-        
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
+        do {
+            // Convert `UIImage` to `SBSDKImageRef`.
+            let imageRef = SBSDKImageRef.fromUIImage(image: image)
+            
+            // Scan barcodes on the provided image
+            let results = try barcodeScanner.run(image: imageRef)
+            
+            self.barcodeScannerResults = results.barcodes
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
+        } catch {
+            print("Error scanning barcodes: \(error.localizedDescription)")
         }
     }
 }
 
-extension DetectBarcodesOnStillImagesViewController {
+extension ScanBarcodesOnStillImagesViewController {
     
     @IBAction func importButtonTapped(_ sender: UIBarButtonItem) {
         
@@ -63,7 +80,7 @@ extension DetectBarcodesOnStillImagesViewController {
     }
 }
 
-extension DetectBarcodesOnStillImagesViewController: UITableViewDataSource, UITableViewDelegate {
+extension ScanBarcodesOnStillImagesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return barcodeScannerResults.count
@@ -73,7 +90,7 @@ extension DetectBarcodesOnStillImagesViewController: UITableViewDataSource, UITa
         if let cell = tableView.dequeueReusableCell(withIdentifier: "barCodeResultCell")
             as? BarcodeResultTableViewCell {
             
-            cell.barcodeImageView.image = self.barcodeScannerResults[indexPath.row].sourceImage?.toUIImage()
+            cell.barcodeImageView.image = try? self.barcodeScannerResults[indexPath.row].sourceImage?.toUIImage()
             cell.barcodeTextLabel.text = self.barcodeScannerResults[indexPath.row].textWithExtension
             cell.barcodeTypeLabel.text = self.barcodeScannerResults[indexPath.row].format.name
             
@@ -84,7 +101,7 @@ extension DetectBarcodesOnStillImagesViewController: UITableViewDataSource, UITa
 }
 
 @available(iOS 14.0, *)
-extension DetectBarcodesOnStillImagesViewController: PHPickerViewControllerDelegate {
+extension ScanBarcodesOnStillImagesViewController: PHPickerViewControllerDelegate {
     
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         
@@ -96,14 +113,14 @@ extension DetectBarcodesOnStillImagesViewController: PHPickerViewControllerDeleg
                 guard let image = image as? UIImage else {
                     return
                 }
-                self?.detectBarcode(OnImage: image)
+                self?.scanBarcode(on: image)
             }
         }
     }
 }
 
 // TODO: Remove in case we drop iOS 13.0
-extension DetectBarcodesOnStillImagesViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension ScanBarcodesOnStillImagesViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -113,7 +130,7 @@ extension DetectBarcodesOnStillImagesViewController: UIImagePickerControllerDele
         guard let image = info[.originalImage] as? UIImage else {
             return
         }
-        self.detectBarcode(OnImage: image)
+        self.scanBarcode(on: image)
     }
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
