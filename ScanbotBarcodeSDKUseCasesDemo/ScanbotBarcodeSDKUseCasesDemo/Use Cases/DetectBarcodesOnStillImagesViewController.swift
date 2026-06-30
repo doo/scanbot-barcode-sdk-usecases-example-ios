@@ -25,6 +25,9 @@ final class ScanBarcodesOnStillImagesViewController: UIViewController {
         // Create barcode scanner configuration.
         let configuration = SBSDKBarcodeScannerConfiguration(barcodeFormats: SBSDKBarcodeFormats.all)
         
+        // Configure scanner to return barcode images along with the results.
+        configuration.returnBarcodeImage = true
+        
         do {
             // Initialise the barcode scanner using the configuration.
             barcodeScanner = try SBSDKBarcodeScanner(configuration: configuration)
