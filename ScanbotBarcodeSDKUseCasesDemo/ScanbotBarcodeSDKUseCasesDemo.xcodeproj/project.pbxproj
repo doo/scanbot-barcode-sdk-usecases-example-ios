@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F10626FF2D80832200BEBFDA /* ScanbotBarcodeScannerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = F10626FE2D80832200BEBFDA /* ScanbotBarcodeScannerSDK */; };
+		F10E94C52FF3E71200333C3B /* ScanbotBarcodeScannerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = F10E94C42FF3E71200333C3B /* ScanbotBarcodeScannerSDK */; };
 		F1379DD92A6A892D00518DA1 /* BannerUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1379DD82A6A892D00518DA1 /* BannerUITableViewCell.swift */; };
 		F18AE9452A5EC2AD006E7DE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18AE9442A5EC2AD006E7DE5 /* AppDelegate.swift */; };
 		F18AE9472A5EC2AD006E7DE5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18AE9462A5EC2AD006E7DE5 /* SceneDelegate.swift */; };
@@ -62,7 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F10626FF2D80832200BEBFDA /* ScanbotBarcodeScannerSDK in Frameworks */,
+				F10E94C52FF3E71200333C3B /* ScanbotBarcodeScannerSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,7 +195,7 @@
 			);
 			name = ScanbotBarcodeSDKUseCasesDemo;
 			packageProductDependencies = (
-				F10626FE2D80832200BEBFDA /* ScanbotBarcodeScannerSDK */,
+				F10E94C42FF3E71200333C3B /* ScanbotBarcodeScannerSDK */,
 			);
 			productName = "Scanbot Barcode SDK";
 			productReference = F18AE9412A5EC2AD006E7DE5 /* ScanbotBarcodeSDKUseCasesDemo.app */;
@@ -226,7 +226,7 @@
 			);
 			mainGroup = F18AE9382A5EC2AD006E7DE5;
 			packageReferences = (
-				F10626FD2D80832200BEBFDA /* XCRemoteSwiftPackageReference "scanbot-barcode-scanner-sdk-ios-spm" */,
+				F10E94C32FF3E71200333C3B /* XCRemoteSwiftPackageReference "scanbot-barcode-scanner-sdk-ios-spm" */,
 			);
 			productRefGroup = F18AE9422A5EC2AD006E7DE5 /* Products */;
 			projectDirPath = "";
@@ -496,20 +496,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F10626FD2D80832200BEBFDA /* XCRemoteSwiftPackageReference "scanbot-barcode-scanner-sdk-ios-spm" */ = {
+		F10E94C32FF3E71200333C3B /* XCRemoteSwiftPackageReference "scanbot-barcode-scanner-sdk-ios-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/doo/scanbot-barcode-scanner-sdk-ios-spm.git";
+			repositoryURL = "https://github.com/doo/scanbot-barcode-scanner-sdk-ios-spm";
 			requirement = {
 				kind = exactVersion;
-				version = 8.0.1;
+				version = 9.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F10626FE2D80832200BEBFDA /* ScanbotBarcodeScannerSDK */ = {
+		F10E94C42FF3E71200333C3B /* ScanbotBarcodeScannerSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F10626FD2D80832200BEBFDA /* XCRemoteSwiftPackageReference "scanbot-barcode-scanner-sdk-ios-spm" */;
+			package = F10E94C32FF3E71200333C3B /* XCRemoteSwiftPackageReference "scanbot-barcode-scanner-sdk-ios-spm" */;
 			productName = ScanbotBarcodeScannerSDK;
 		};
 /* End XCSwiftPackageProductDependency section */
