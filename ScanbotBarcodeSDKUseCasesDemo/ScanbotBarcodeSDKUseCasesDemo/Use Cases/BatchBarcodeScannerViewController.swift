@@ -40,13 +40,10 @@ final class BatchBarcodeScannerViewController: UIViewController {
                                                                        configuration: configuration,
                                                                        delegate: self)
         
-        // Retrieve the current applied view finder configurations and modify it
-        let viewFinderConfiguration = scannerViewController.viewFinderConfiguration
+        // Retrieve the view finder configuration of the scanner and modify it
+        let viewFinderConfiguration = scannerViewController.viewFinder
         viewFinderConfiguration.isViewFinderEnabled = true
         viewFinderConfiguration.aspectRatio = SBSDKAspectRatio(width: 1, height: 1)
-        
-        // Apply the modified view finder configurations onto the scanner
-        scannerViewController.viewFinderConfiguration = viewFinderConfiguration
     }
 }
 

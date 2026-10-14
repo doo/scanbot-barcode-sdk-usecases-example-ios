@@ -43,19 +43,16 @@ final class TinyBarcodesScannerViewController: UIViewController {
         
         // Retrieve the current applied general configurations and modify it
         let generalConfiguration = scannerViewController.generalConfiguration
-        generalConfiguration.isFocusLockEnabled = true
-        generalConfiguration.focusLockPosition = 0.1
+        generalConfiguration.focusMode = .focusLocked
+        generalConfiguration.focusLockLensPosition = 0.1
         
-        // Retrieve the current applied view finder configurations and modify it
-        let viewFinderConfiguration = scannerViewController.viewFinderConfiguration
+        // Retrieve the view finder configuration of the scanner and modify it
+        let viewFinderConfiguration = scannerViewController.viewFinder
         viewFinderConfiguration.isViewFinderEnabled = true
         viewFinderConfiguration.aspectRatio = SBSDKAspectRatio(width: 1, height: 1)
         
         // Apply the modified general configurations onto the scanner
         scannerViewController.generalConfiguration = generalConfiguration
-        
-        // Apply the modified view finder configurations onto the scanner
-        scannerViewController.viewFinderConfiguration = viewFinderConfiguration
     }
 }
 

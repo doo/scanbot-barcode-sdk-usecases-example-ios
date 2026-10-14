@@ -63,23 +63,14 @@ extension ScanBarcodesOnStillImagesViewController {
     
     @IBAction func importButtonTapped(_ sender: UIBarButtonItem) {
         
-        if #available(iOS 14.0, *) {
-            
-            var configuration = PHPickerConfiguration()
-            configuration.selectionLimit = 1
-            configuration.filter = .images
-            
-            let picker = PHPickerViewController(configuration: configuration)
-            picker.delegate = self
-            
-            self.present(picker, animated: true)
-            
-        } else {
-            
-            let picker = UIImagePickerController()
-            picker.delegate = self
-            self.present(picker, animated: true)
-        }
+        var configuration = PHPickerConfiguration()
+        configuration.selectionLimit = 1
+        configuration.filter = .images
+        
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        
+        self.present(picker, animated: true)
     }
 }
 
@@ -103,7 +94,6 @@ extension ScanBarcodesOnStillImagesViewController: UITableViewDataSource, UITabl
     }
 }
 
-@available(iOS 14.0, *)
 extension ScanBarcodesOnStillImagesViewController: PHPickerViewControllerDelegate {
     
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
@@ -119,24 +109,5 @@ extension ScanBarcodesOnStillImagesViewController: PHPickerViewControllerDelegat
                 self?.scanBarcode(on: image)
             }
         }
-    }
-}
-
-// TODO: Remove in case we drop iOS 13.0
-extension ScanBarcodesOnStillImagesViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        picker.dismiss(animated: true)
-        
-        guard let image = info[.originalImage] as? UIImage else {
-            return
-        }
-        self.scanBarcode(on: image)
-    }
-
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true)
     }
 }

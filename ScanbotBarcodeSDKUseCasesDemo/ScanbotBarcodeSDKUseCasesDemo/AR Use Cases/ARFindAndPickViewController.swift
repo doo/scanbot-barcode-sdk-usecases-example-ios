@@ -36,44 +36,35 @@ final class ARFindAndPickViewController: UIViewController {
                                                                   configuration: configuration)
         
         // Enable AR tracking overlay and set the delegate
-        scannerViewController.isTrackingOverlayEnabled = true
-        scannerViewController.trackingOverlayController.delegate = self
+        scannerViewController.viewModel.trackingOverlay.isTrackingOverlayEnabled = true
+        scannerViewController.viewModel.trackingOverlay.delegate = self
     }
 }
 
 extension ARFindAndPickViewController: SBSDKBarcodeTrackingOverlayControllerDelegate {
     
-    // Delegate method to provide a custom style for a tracked barcodes polygon.
+    // Delegate method to provide a custom style for a tracked barcode.
     func barcodeTrackingOverlay(_ controller: SBSDKBarcodeTrackingOverlayController,
-                                polygonStyleFor barcode: SBSDKBarcodeItem,
-                                proposedStyle: SBSDKBarcodeTrackedViewPolygonStyle) -> SBSDKBarcodeTrackedViewPolygonStyle {
+                                styleFor item: SBSDKBarcodeTrackingOverlayItem,
+                                proposedStyle: SBSDKBarcodeTrackingOverlayStyle) -> SBSDKBarcodeTrackingOverlayStyle {
         
-        // Provide custom style for tracked barcodes polygon
-        let polygonStyle = SBSDKBarcodeTrackedViewPolygonStyle()
-        polygonStyle.polygonDrawingEnabled = true
+        // Provide custom style for the tracked barcode
+        let style = SBSDKBarcodeTrackingOverlayStyle()
+        
+        // Enable the polygon and disable the info view
+        style.polygonDrawingEnabled = true
+        style.textDrawingEnabled = false
         
         // Green color for QR code and white for the rest of the barcode types
-        if barcode.format == SBSDKBarcodeFormat.qrCode {
-            polygonStyle.polygonColor = .green
-            polygonStyle.polygonBackgroundColor = .green.withAlphaComponent(0.2)
+        if item.barcode.format == SBSDKBarcodeFormat.qrCode {
+            style.polygonColor = .green
+            style.polygonBackgroundColor = .green.withAlphaComponent(0.2)
         } else {
-            polygonStyle.polygonColor = .white
-            polygonStyle.polygonBackgroundColor = .white.withAlphaComponent(0.2)
+            style.polygonColor = .white
+            style.polygonBackgroundColor = .white.withAlphaComponent(0.2)
         }
         
-        return polygonStyle
-    }
-    
-    // Delegate method to provide a custom style for a tracked barcodes info view
-    func barcodeTrackingOverlay(_ controller: SBSDKBarcodeTrackingOverlayController,
-                                textStyleFor barcode: SBSDKBarcodeItem,
-                                proposedStyle: SBSDKBarcodeTrackedViewTextStyle) -> SBSDKBarcodeTrackedViewTextStyle {
-        
-        // Provide custom style for tracked barcodes info view
-        let textStyle = SBSDKBarcodeTrackedViewTextStyle()
-        textStyle.textDrawingEnabled = false
-        
-        return textStyle
+        return style
     }
 }
 
